@@ -56,13 +56,13 @@ export function Stats() {
         <StatCard
           icon="verified"
           label="Vetted Agencies"
-          value="500+"
+          value="5+"
           badge="+12%"
         />
         <StatCard
           icon="rocket_launch"
           label="Projects Delivered"
-          value="1.2K"
+          value="10+"
           badge="+25%"
         />
         <StatCard

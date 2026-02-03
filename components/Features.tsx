@@ -81,7 +81,7 @@ export function Features() {
               </div>
               <div>
                 <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-secondary-accent transition-colors">
-                  Smart Contracts
+                  Smart Contracts (soon)
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-lg">
                   Secure and transparent agreements powered by blockchain
@@ -91,7 +91,7 @@ export function Features() {
             </div>
           </div>
 
-          {/* Verified Quality */}
+         
           <div className="col-span-1 md:col-span-4 glass-card rounded-3xl p-10 relative overflow-hidden group transition-all duration-500">
             <div className="relative z-10 flex flex-col gap-6">
               <div className="size-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 text-primary group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300">
@@ -106,10 +106,10 @@ export function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-3xl font-bold text-white mb-2">
                   Verified Quality
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-400 text-lg leading-relaxed">
                   Every agency is rigorously vetted to ensure premium delivery
                   standards.
                 </p>

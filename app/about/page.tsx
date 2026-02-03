@@ -3,10 +3,10 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const stats = [
-  { value: "2021", label: "Founded" },
-  { value: "40+", label: "Countries" },
-  { value: "500+", label: "Agencies" },
-  { value: "$50M+", label: "Projects Facilitated" },
+  { value: "2026", label: "Founded" },
+  { value: "40+", label: "Projected Countries" },
+  { value: "500+", label: " Target Agencies" },
+  { value: "$50M+", label: "Aim Projects Facilitated" },
 ];
 
 const values = [
@@ -34,37 +34,37 @@ const values = [
 
 const team = [
   {
-    name: "Alex Chen",
+    name: "Mishael Ishola",
     role: "CEO & Co-Founder",
-    bio: "Former VP at a leading ad tech company. 15+ years in digital marketing.",
+    bio: "",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
   },
   {
-    name: "Sarah Mitchell",
+    name: "Daniel Uzodinma",
     role: "CTO & Co-Founder",
-    bio: "Ex-Google engineer. Blockchain enthusiast and AI researcher.",
+    // bio: "Ex-Google engineer. Blockchain enthusiast and AI researcher.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
   },
-  {
-    name: "Marcus Johnson",
-    role: "Head of Partnerships",
-    bio: "Built agency networks at two Fortune 500 companies.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "Head of Product",
-    bio: "Product leader with experience at Stripe and Figma.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-  },
+  // {
+  //   name: "Marcus Johnson",
+  //   role: "Head of Partnerships",
+  //   bio: "Built agency networks at two Fortune 500 companies.",
+  //   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+  // },
+  // {
+  //   name: "Elena Rodriguez",
+  //   role: "Head of Product",
+  //   bio: "Product leader with experience at Stripe and Figma.",
+  //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+  // },
 ];
 
 const milestones = [
-  { year: "2021", title: "The Beginning", description: "Founded with a vision to revolutionize agency partnerships" },
-  { year: "2022", title: "Seed Funding", description: "Raised $5M to build our AI matching technology" },
-  { year: "2023", title: "Platform Launch", description: "Launched with 100 vetted agencies across 15 countries" },
-  { year: "2024", title: "Web3 Integration", description: "Introduced smart contracts and blockchain verification" },
-  { year: "2025", title: "Global Expansion", description: "Reached 500+ agencies in 40+ countries" },
+  { year: "2026 Q1", title: "The Beginning", description: "Founded with a vision to revolutionize agency partnerships" },
+  // { year: "2026 Q2", title: "Seed Funding", description: "Raised $5M to build our AI matching technology" },
+  { year: "2026 Q1", title: "Platform Launch", description: "Launching with 50 vetted agencies across countries" },
+  { year: "2026 Q2", title: "Web3 Integration", description: "Introduced smart contracts and blockchain verification" },
+  { year: "2026 Q3", title: "Global Expansion", description: "Reaching 500+ agencies in 40+ countries" },
 ];
 
 export default function AboutPage() {
@@ -284,7 +284,7 @@ export default function AboutPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent"> perfect agency?</span>
               </h2>
               <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-                Join thousands of businesses who have found their ideal marketing partners through Bridgemark.
+                Join thousands of businesses who would find their ideal marketing partners through Bridgemark.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
