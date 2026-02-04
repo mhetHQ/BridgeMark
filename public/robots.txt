@@ -1,0 +1,9 @@
+# Crawlers
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://bridgemark.io/sitemap.xml
+
+# Disallow admin or API routes
+Disallow: /api/
