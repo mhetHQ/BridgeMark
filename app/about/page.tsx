@@ -34,16 +34,16 @@ const values = [
 
 const team = [
   {
-    name: "Mishael Ishola",
+    name: "Mhet",
     role: "CEO & Co-Founder",
     bio: "",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: "/Mhet_pic.jpeg",
   },
   {
-    name: "Daniel Uzodinma",
+    name: "Deedaro",
     role: "CTO & Co-Founder",
     // bio: "Ex-Google engineer. Blockchain enthusiast and AI researcher.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+    image: "/Deedaro_pic.png",
   },
   // {
   //   name: "Marcus Johnson",
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
           <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-[-0.03em] mb-6">
             Building the future of
-            <span className="bg-gradient-to-r from-secondary-accent via-[#D946EF] to-primary bg-clip-text text-transparent block mt-2">
+            <span className="bg-secondary-accent bg-clip-text text-transparent block mt-2">
               agency partnerships
             </span>
           </h1>
@@ -119,13 +119,13 @@ export default function AboutPage() {
         {/* Mission Section */}
         <section className="w-full max-w-6xl mb-24">
           <div className="glass-card rounded-3xl p-10 md:p-16 relative overflow-hidden">
-            <div className="absolute -right-20 -top-20 w-72 h-72 bg-secondary-accent/20 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute -left-20 -bottom-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+            {/* <div className="absolute -right-20 -top-20 w-72 h-72 bg-secondary-accent/20 rounded-full blur-[100px] pointer-events-none" /> */}
+            {/* <div className="absolute -left-20 -bottom-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] pointer-events-none" /> */}
 
             <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-black mb-6">
-                  Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent">Mission</span>
+                  Our <span className="text-transparent bg-clip-text bg-secondary-accent">Mission</span>
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed mb-6">
                   To democratize access to world-class marketing talent by creating the most transparent, 
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <section className="w-full max-w-6xl mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              What We <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent">Stand For</span>
+              What We <span className="text-transparent bg-clip-text bg-primary">Stand For</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Our core values guide everything we do, from how we build our platform to how we treat our community.
@@ -202,7 +202,7 @@ export default function AboutPage() {
         <section className="w-full max-w-4xl mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent">Journey</span>
+              Our <span className="text-transparent bg-clip-text bg-secondary-accent">Journey</span>
             </h2>
           </div>
 
@@ -239,7 +239,7 @@ export default function AboutPage() {
         <section className="w-full max-w-6xl mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent">Team</span>
+              Meet the <span className="text-transparent bg-clip-text bg-primary">Team</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               A diverse group of innovators, marketers, and technologists united by a shared vision.
@@ -280,8 +280,7 @@ export default function AboutPage() {
 
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-black mb-6">
-                Ready to find your
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-accent"> perfect agency?</span>
+                Ready to find your perfect agency?
               </h2>
               <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
                 Join thousands of businesses who would find their ideal marketing partners through Bridgemark.
@@ -290,7 +289,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/get-matched"
-                  className="group flex items-center justify-center rounded-full h-14 px-8 bg-gradient-to-r from-secondary-accent to-primary bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black text-lg font-bold shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:shadow-[0_0_40px_rgba(189,0,255,0.6)] hover:-translate-y-1"
+                  className="group flex items-center justify-center rounded-full h-14 px-8 hover:border-secondary-accent border border-white/20 text-white hover:bg-right transition-all duration-500 text-lg font-bold"
                 >
                   Get Matched Now
                   <svg
