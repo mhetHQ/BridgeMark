@@ -292,7 +292,7 @@ export default function AgenciesPage() {
           <h1 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-[-0.03em] mb-6">
             Find your perfect
             <span className="bg-gradient-to-r from-primary via-[#4DFFFF] to-secondary-accent bg-clip-text text-transparent block mt-2">
-              agency partner
+              agency partner.
             </span>
           </h1>
 
