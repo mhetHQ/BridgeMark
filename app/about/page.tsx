@@ -34,10 +34,10 @@ const values = [
 
 const team = [
   {
-    name: "Mhet",
+    name: "mhet",
     role: "CEO & Co-Founder",
     bio: "",
-    image: "/Mhet_pic.jpeg",
+    image: "/Mhet_Pic.jpeg",
   },
   {
     name: "Deedaro",
