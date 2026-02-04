@@ -51,7 +51,7 @@ export function Features() {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 group-hover:text-primary transition-colors">
-                  AI-Powered Matching
+                  AI-Powered Matching (soon)
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg">
                   Our proprietary neural network analyzes millions of data points
