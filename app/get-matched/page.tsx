@@ -170,7 +170,7 @@ export default function GetMatchedPage() {
 
             <h1 className="text-white tracking-tighter text-5xl md:text-7xl font-black leading-[0.95] mb-6">
               Tell us what<br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary-accent via-[#D946EF] to-primary">
+              <span className="bg-clip-text text-transparent bg-primary">
                 you need.
               </span>
             </h1>
@@ -181,9 +181,7 @@ export default function GetMatchedPage() {
 
           {/* Form Card */}
           <div className="w-full glass-card rounded-[2rem] p-6 md:p-10 relative overflow-hidden group transition-all duration-500">
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary-accent/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-secondary-accent/20 transition-all duration-700" />
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-primary/20 transition-all duration-700" />
-
+         
             {status === "success" ? (
               /* Success State */
               <div className="relative z-10 flex flex-col items-center justify-center py-12 text-center">
@@ -441,14 +439,11 @@ export default function GetMatchedPage() {
             <p className="text-gray-600 text-sm">© 2024 Bridgemark. All rights reserved.</p>
           </div>
           <div className="flex gap-8">
-            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="#terms">
+            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="/terms">
               Terms
             </Link>
-            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="#privacy">
+            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="/privacy">
               Privacy
-            </Link>
-            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="#cookies">
-              Cookies
             </Link>
           </div>
         </div>
