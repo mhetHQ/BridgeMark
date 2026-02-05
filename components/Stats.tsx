@@ -9,10 +9,10 @@ interface StatCardProps {
 
 function StatCard({ icon, label, value, badge, iconFilled = true, delay = "" }: StatCardProps) {
   return (
-    <div className={`group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500 animate-fade-in-up hover-lift ${delay}`}>
-      <div className="relative flex flex-col gap-2 sm:gap-3 h-full rounded-2xl bg-black/80 backdrop-blur-xl p-5 sm:p-6 md:p-8 border border-white/5 group-hover:border-transparent transition-all">
+    <div className={`group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500 animate-fade-in-up hover-lift ${delay}`}>
+      <div className="relative flex flex-col gap-2 sm:gap-3 h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl p-5 sm:p-6 md:p-8 border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-        <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all duration-300 text-white group-hover:animate-float">
+        <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all duration-300 text-white dark:text-white light:text-gray-900 group-hover:animate-float">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="36"
@@ -34,11 +34,11 @@ function StatCard({ icon, label, value, badge, iconFilled = true, delay = "" }: 
             )}
           </svg>
         </div>
-        <p className="text-gray-400 text-xs font-bold uppercase tracking-widest z-10">
+        <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-xs font-bold uppercase tracking-widest z-10">
           {label}
         </p>
         <div className="flex items-baseline gap-2 sm:gap-3 z-10">
-          <p className="text-white text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight">
+          <p className="text-white dark:text-white light:text-gray-900 text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight">
             {value}
           </p>
           <span className="text-black text-[10px] sm:text-xs font-bold bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md shadow-[0_0_10px_rgba(0,240,255,0.4)]">
