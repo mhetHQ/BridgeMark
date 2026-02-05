@@ -1,17 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+
+interface ConfettiPiece {
+  id: number;
+  left: number;
+  delay: number;
+  duration: number;
+  color: string;
+  shape: "rect" | "circle" | "triangle";
+  size: number;
+  rotation: number;
+}
 
 interface SuccessStepProps {
   slug: string;
 }
 
+const CONFETTI_COLORS = [
+  "#00F0FF", // primary cyan
+  "#BD00FF", // secondary purple
+  "#FFD700", // gold
+  "#FF6B6B", // coral
+  "#4ADE80", // green
+  "#F472B6", // pink
+];
+
 export function SuccessStep({ slug }: SuccessStepProps) {
   const [showConfetti, setShowConfetti] = useState(true);
 
+  const confettiPieces = useMemo<ConfettiPiece[]>(() => {
+    return [...Array(50)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 2 + Math.random() * 3,
+      color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+      shape: (["rect", "circle", "triangle"] as const)[Math.floor(Math.random() * 3)],
+      size: 8 + Math.random() * 12,
+      rotation: Math.random() * 360,
+    }));
+  }, []);
+
   useEffect(() => {
-    const timer = setTimeout(() => setShowConfetti(false), 5000);
+    const timer = setTimeout(() => setShowConfetti(false), 6000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -45,12 +78,12 @@ export function SuccessStep({ slug }: SuccessStepProps) {
           </span>
         </h2>
 
-        <p className="text-gray-400 text-lg mb-8 max-w-md mx-auto">
+        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg mb-8 max-w-md mx-auto">
           Thank you for applying to join our curated network. Your listing is now under review.
         </p>
 
         {/* What's Next */}
-        <div className="bg-white/5 rounded-2xl p-6 mb-8 text-left">
+        <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 rounded-2xl p-6 mb-8 text-left">
           <h3 className="text-lg font-semibold mb-4 text-center">What happens next?</h3>
           <div className="space-y-4">
             <div className="flex items-start gap-4">
@@ -58,8 +91,8 @@ export function SuccessStep({ slug }: SuccessStepProps) {
                 <span className="text-primary font-bold text-sm">1</span>
               </div>
               <div>
-                <p className="text-white font-medium">Review Process</p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-white dark:text-white light:text-gray-900 font-medium">Review Process</p>
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
                   Our team will review your application within 2-3 business days.
                 </p>
               </div>
@@ -69,8 +102,8 @@ export function SuccessStep({ slug }: SuccessStepProps) {
                 <span className="text-primary font-bold text-sm">2</span>
               </div>
               <div>
-                <p className="text-white font-medium">Email Confirmation</p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-white dark:text-white light:text-gray-900 font-medium">Email Confirmation</p>
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
                   You&apos;ll receive an email once your listing is approved and live.
                 </p>
               </div>
@@ -80,8 +113,8 @@ export function SuccessStep({ slug }: SuccessStepProps) {
                 <span className="text-primary font-bold text-sm">3</span>
               </div>
               <div>
-                <p className="text-white font-medium">Start Receiving Leads</p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-white dark:text-white light:text-gray-900 font-medium">Start Receiving Leads</p>
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
                   Once approved, your profile will be visible to businesses looking for agencies.
                 </p>
               </div>
@@ -92,7 +125,7 @@ export function SuccessStep({ slug }: SuccessStepProps) {
         {/* Profile Preview Link */}
         <div className="space-y-4">
           <p className="text-gray-500 text-sm">Your profile will be available at:</p>
-          <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 inline-block">
+          <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-4 py-3 inline-block">
             <code className="text-primary text-sm">
               bridgemark.com/agencies/{slug}
             </code>
@@ -103,7 +136,7 @@ export function SuccessStep({ slug }: SuccessStepProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <Link
             href="/"
-            className="px-6 py-3 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10"
+            className="px-6 py-3 bg-white/5 dark:bg-white/5 light:bg-black/5 text-white dark:text-white light:text-gray-900 font-semibold rounded-xl hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 transition-all border border-white/10 dark:border-white/10 light:border-black/10"
           >
             Back to Home
           </Link>
@@ -116,23 +149,72 @@ export function SuccessStep({ slug }: SuccessStepProps) {
         </div>
       </div>
 
-      {/* Simple confetti effect */}
+      {/* Confetti celebration effect */}
       {showConfetti && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 rounded-full animate-bounce"
-              style={{
-                backgroundColor: i % 2 === 0 ? "#00F0FF" : "#BD00FF",
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${1 + Math.random()}s`,
-              }}
-            />
-          ))}
-        </div>
+        <>
+          <style jsx>{`
+            @keyframes confetti-fall {
+              0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 1;
+              }
+              100% {
+                transform: translateY(800%) rotate(720deg);
+                opacity: 0;
+              }
+            }
+            .confetti-piece {
+              animation: confetti-fall linear forwards;
+            }
+          `}</style>
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {confettiPieces.map((piece) => (
+              <div
+                key={piece.id}
+                className="confetti-piece absolute -top-4"
+                style={{
+                  left: `${piece.left}%`,
+                  animationDelay: `${piece.delay}s`,
+                  animationDuration: `${piece.duration}s`,
+                }}
+              >
+                {piece.shape === "rect" && (
+                  <div
+                    style={{
+                      width: piece.size,
+                      height: piece.size * 0.6,
+                      backgroundColor: piece.color,
+                      transform: `rotate(${piece.rotation}deg)`,
+                      borderRadius: 2,
+                    }}
+                  />
+                )}
+                {piece.shape === "circle" && (
+                  <div
+                    style={{
+                      width: piece.size,
+                      height: piece.size,
+                      backgroundColor: piece.color,
+                      borderRadius: "50%",
+                    }}
+                  />
+                )}
+                {piece.shape === "triangle" && (
+                  <div
+                    style={{
+                      width: 0,
+                      height: 0,
+                      borderLeft: `${piece.size / 2}px solid transparent`,
+                      borderRight: `${piece.size / 2}px solid transparent`,
+                      borderBottom: `${piece.size}px solid ${piece.color}`,
+                      transform: `rotate(${piece.rotation}deg)`,
+                    }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
