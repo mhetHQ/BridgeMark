@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   /* Bridgemark Custom Theme */
@@ -54,12 +55,32 @@
   * {
     @apply border-white/10;
   }
+  
+  /* Dark mode (default) */
+  .dark body {
+    @apply bg-background-dark text-white font-display overflow-x-hidden;
+  }
+  
+  /* Light mode */
+  .light body {
+    @apply bg-background-light text-gray-900 font-display overflow-x-hidden;
+  }
+  
+  /* Fallback for initial load */
   body {
     @apply bg-background-dark text-white font-display overflow-x-hidden;
   }
   
-  ::selection {
+  .dark ::selection {
     @apply bg-primary text-black;
+  }
+  
+  .light ::selection {
+    @apply bg-primary text-white;
+  }
+  
+  .light * {
+    @apply border-black/10;
   }
 }
 
@@ -78,11 +99,21 @@
   background-size: 30px 30px;
 }
 
+.light .dot-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
 .glass-card {
   background: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .glass-card:hover {

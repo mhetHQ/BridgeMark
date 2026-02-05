@@ -69,31 +69,31 @@ const milestones = [
 
 export default function AboutPage() {
   return (
-    <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="w-full bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_60%)]" />
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/20 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_60%)] light:hidden" />
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/20 dark:bg-secondary-accent/20 light:hidden light:bg-secondary-accent/10 blur-[120px] pointer-events-none z-0" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0 light:hidden" />
 
       <Navbar />
 
       <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
         {/* Hero Section */}
         <section className="w-full max-w-6xl text-center mb-20">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-md mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,240,255,1)]" />
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300">Our Story</span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300 dark:text-gray-300 light:text-gray-600">Our Story</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-[-0.03em] mb-6">
             Building the future of
-            <span className="bg-secondary-accent bg-clip-text text-transparent block mt-2">
+            <span className="light:bg-primary dark:bg-secondary-accent bg-clip-text text-transparent block mt-2">
               agency partnerships
             </span>
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             We started Bridgemark with a simple belief: finding the right marketing agency shouldn&apos;t feel like a gamble. 
             It should be transparent, efficient, and powered by technology that actually works for you.
           </p>
@@ -105,11 +105,11 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
+                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
               >
-                <div className="relative flex flex-col items-center gap-2 h-full rounded-2xl bg-black/80 backdrop-blur-xl p-8 border border-white/5 group-hover:border-transparent transition-all text-center">
-                  <p className="text-4xl md:text-5xl font-black text-white">{stat.value}</p>
-                  <p className="text-gray-400 text-sm font-medium uppercase tracking-wider">{stat.label}</p>
+                <div className="relative flex flex-col items-center gap-2 h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl p-8 border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all text-center">
+                  <p className="text-4xl md:text-5xl font-black text-white dark:text-white light:text-gray-900">{stat.value}</p>
+                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm font-medium uppercase tracking-wider">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -127,18 +127,18 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-4xl font-black mb-6">
                   Our <span className="text-transparent bg-clip-text bg-secondary-accent">Mission</span>
                 </h2>
-                <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg leading-relaxed mb-6">
                   To democratize access to world-class marketing talent by creating the most transparent, 
                   efficient, and trustworthy marketplace in the industry.
                 </p>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg leading-relaxed">
                   We leverage AI to match businesses with their perfect agency partners, and blockchain 
                   technology to ensure every agreement is secure, transparent, and fair.
                 </p>
               </div>
               <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-secondary-accent/20 to-primary/20 p-8 border border-white/10">
-                  <div className="w-full h-full rounded-xl bg-black/50 flex items-center justify-center">
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-secondary-accent/20 to-primary/20 p-8 border border-white/10 dark:border-white/10 light:border-black/10">
+                  <div className="w-full h-full rounded-xl bg-black/50 dark:bg-black/50 light:bg-gray-100 flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-32 h-32 text-primary/50"
@@ -166,7 +166,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-4">
               What We <span className="text-transparent bg-clip-text bg-primary">Stand For</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
               Our core values guide everything we do, from how we build our platform to how we treat our community.
             </p>
           </div>
@@ -177,7 +177,7 @@ export default function AboutPage() {
                 key={value.title}
                 className="glass-card rounded-2xl p-8 group transition-all duration-500 hover:border-primary/40"
               >
-                <div className="size-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 text-primary mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all duration-300">
+                <div className="size-12 rounded-xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all duration-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -189,10 +189,10 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d={value.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-3 group-hover:text-primary transition-colors">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -225,8 +225,8 @@ export default function AboutPage() {
                   <div className={`ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
                     <div className="glass-card rounded-2xl p-6 inline-block">
                       <span className="text-primary font-bold text-lg">{milestone.year}</span>
-                      <h3 className="text-white font-bold text-xl mt-1">{milestone.title}</h3>
-                      <p className="text-gray-400 mt-2">{milestone.description}</p>
+                      <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-xl mt-1">{milestone.title}</h3>
+                      <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mt-2">{milestone.description}</p>
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-4">
               Meet the <span className="text-transparent bg-clip-text bg-primary">Team</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
               A diverse group of innovators, marketers, and technologists united by a shared vision.
             </p>
           </div>
@@ -250,9 +250,9 @@ export default function AboutPage() {
             {team.map((member) => (
               <div
                 key={member.name}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
+                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
               >
-                <div className="relative flex flex-col h-full rounded-2xl bg-black/80 backdrop-blur-xl overflow-hidden border border-white/5 group-hover:border-transparent transition-all">
+                <div className="relative flex flex-col h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl overflow-hidden border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all">
                   <div className="aspect-square overflow-hidden">
                     <img
                       src={member.image}
@@ -261,7 +261,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-white font-bold text-lg group-hover:text-primary transition-colors">
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-lg group-hover:text-primary transition-colors">
                       {member.name}
                     </h3>
                     <p className="text-primary/80 text-sm font-medium mb-2">{member.role}</p>
@@ -282,14 +282,14 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-5xl font-black mb-6">
                 Ready to find your perfect agency?
               </h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg mb-8 max-w-xl mx-auto">
                 Join thousands of businesses who would find their ideal marketing partners through Bridgemark.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/get-matched"
-                  className="group flex items-center justify-center rounded-full h-14 px-8 hover:border-secondary-accent border border-white/20 text-white hover:bg-right transition-all duration-500 text-lg font-bold"
+                  className="group flex items-center justify-center rounded-full h-14 px-8 hover:border-secondary-accent border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 hover:bg-right transition-all duration-500 text-lg font-bold"
                 >
                   Get Matched Now
                   <svg
@@ -303,7 +303,7 @@ export default function AboutPage() {
                 </Link>
                 <Link
                   href="/"
-                  className="flex items-center justify-center rounded-full h-14 px-8 bg-black/40 hover:bg-white/10 border border-white/20 text-white text-lg font-medium backdrop-blur-md transition-all hover:border-primary/50"
+                  className="flex items-center justify-center rounded-full h-14 px-8 bg-black/40 dark:bg-black/40 light:bg-white/80 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 text-lg font-medium backdrop-blur-md transition-all hover:border-primary/50"
                 >
                   Back to Home
                 </Link>

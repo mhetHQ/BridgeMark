@@ -7,13 +7,13 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="dark w-full min-h-screen text-white overflow-x-hidden bg-secondary-accent/1">
+    <div className=" w-full min-h-screen text-white overflow-x-hidden dark:bg-black">
       <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-mesh-pattern" />
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/5 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/5 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] left-[-10%] w-[60%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0" />
+      {/* <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/2 blur-[120px] pointer-events-none z-0 light:hidden" />
+      <div className="fixed top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/2 blur-[120px] pointer-events-none z-0 light:hidden" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0 light:hidden" />
+      <div className="fixed bottom-[-20%] left-[-10%] w-[60%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0 light:hidden" /> */}
 
       <Navbar />
 
