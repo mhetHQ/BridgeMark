@@ -6,16 +6,16 @@ export function Features() {
       <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 sm:gap-6 animate-fade-in-up">
           <div className="flex flex-col gap-3 sm:gap-4 max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white dark:text-white light:text-gray-900 tracking-tight">
               Why{" "}Bridgemark?
             </h2>
-            <p className="text-gray-400 text-base sm:text-lg">
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-base sm:text-lg">
               We bridge the gap between ambition and execution with a futuristic
               approach to agency matching.
             </p>
           </div>
           <Link
-            className="text-primary font-bold hover:text-white transition-colors flex items-center gap-2 group"
+            className="text-primary font-bold hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors flex items-center gap-2 group"
             href="#learn-more"
           >
             Learn More
@@ -37,7 +37,7 @@ export function Features() {
           <div className="col-span-1 md:col-span-7 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-slide-in-left hover-lift">
             {/* <div className="absolute -right-16 -top-16 w-56 h-56 bg-secondary-accent/20 rounded-full blur-[80px] group-hover:bg-secondary-accent/30 transition-all duration-500 group-hover:scale-110" /> */}
             <div className="relative z-10 flex flex-col h-full justify-between gap-6 sm:gap-8 md:gap-10">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-primary shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-primary/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary shadow-[0_0_20px_rgba(0,0,0,0.5)] dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] light:shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover:border-primary/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24"
@@ -50,10 +50,10 @@ export function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   AI-Powered Matching (soon)
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
                   Our proprietary neural network analyzes millions of data points
                   to find the perfect agency fit for your unique needs in
                   seconds, not weeks.
@@ -66,7 +66,7 @@ export function Features() {
           <div className="col-span-1 md:col-span-5 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-slide-in-right hover-lift">
             {/* <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-primary/20 rounded-full blur-[60px] group-hover:bg-primary/30 transition-all duration-500 group-hover:scale-110" /> */}
             <div className="relative z-10 flex flex-col h-full justify-between gap-6 sm:gap-8 md:gap-10">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-secondary-accent shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-secondary-accent/50 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-secondary-accent shadow-[0_0_20px_rgba(0,0,0,0.5)] dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] light:shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover:border-secondary-accent/50 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24"
@@ -79,10 +79,10 @@ export function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 group-hover:text-secondary-accent transition-colors">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3 group-hover:text-secondary-accent transition-colors">
                   Smart Contracts (soon)
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
                   Secure and transparent agreements powered by blockchain
                   technology.
                 </p>
@@ -93,7 +93,7 @@ export function Features() {
          
           <div className="col-span-1 md:col-span-4 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-fade-in-up animation-delay-200 hover-lift">
             <div className="relative z-10 flex flex-col gap-4 sm:gap-6">
-              <div className="size-10 sm:size-12 rounded-lg sm:rounded-xl bg-white/5 flex items-center justify-center border border-white/10 text-primary group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-110 transition-all duration-300">
+              <div className="size-10 sm:size-12 rounded-lg sm:rounded-xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-110 transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="20"
@@ -106,10 +106,10 @@ export function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-1 sm:mb-2">
                   Verified Quality
                 </h3>
-                <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                   Every agency is rigorously vetted to ensure premium delivery
                   standards.
                 </p>
@@ -120,7 +120,7 @@ export function Features() {
           {/* Global Network */}
           <div className="col-span-1 md:col-span-8 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 animate-fade-in-up animation-delay-400 hover-lift">
             <div className="relative z-10 flex-1 w-full md:w-auto">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-white mb-4 sm:mb-6 group-hover:bg-white/10 group-hover:scale-110 transition-all duration-300">
+              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-gray-900 mb-4 sm:mb-6 group-hover:bg-white/10 dark:group-hover:bg-white/10 light:group-hover:bg-black/10 group-hover:scale-110 transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24"
@@ -132,23 +132,23 @@ export function Features() {
                   <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-41-8t-42-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z" />
                 </svg>
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3">
                 Global Network
               </h3>
-              <p className="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
                 Access a decentralized network of specialists from over 40
                 countries, collaborating seamlessly through our platform.
               </p>
             </div>
-            <div className="flex-1 w-full h-32 sm:h-40 rounded-xl bg-black/50 border border-white/10 overflow-hidden relative shadow-inner group-hover:border-primary/30 transition-all duration-300">
+            <div className="flex-1 w-full h-32 sm:h-40 rounded-xl bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 light:border-black/10 overflow-hidden relative group-hover:border-primary/30 transition-all duration-300">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-lighten group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 bg-cover bg-center dark:opacity-60 dark:mix-blend-lighten group-hover:scale-105 transition-transform duration-500"
                 style={{
                   backgroundImage:
                     "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk38v0HPrUv9OKRwPHkBCaZmHwDMGTEfGsxqOePuzVOGV_lKt2Fu1tWBL8GPmtu4GIXsWRC9RK6F9vwUr8rQXTGIgk-03Q1OyuK9uKoSFYp9kU19VbcbByNi5uD-tGmrRRwApBs8NlTOwEr3FlfylKrfnabAoopbhUtmjEYoWGOdxOItmFwGaTL_YDr-kknhcpiVvjlGGblQxt1Bx-_LKUixe1pr1KW8wqjKVDsQwmtK70jVAY3O1gLx2fzuPccLEGvH40CPGkaZ3x')",
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 dark:from-black/80 light:from-gray-200/90 to-transparent" /> */}
             </div>
           </div>
         </div>

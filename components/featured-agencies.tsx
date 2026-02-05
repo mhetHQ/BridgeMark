@@ -61,7 +61,7 @@ function AgencyCard({
       </div>
       <div>
         <div className="flex justify-between items-center mb-1">
-          <p className={`text-white text-lg sm:text-xl font-bold ${hoverTextClass} transition-colors`}>
+          <p className={`text-white dark:text-white light:text-gray-900 text-lg sm:text-xl font-bold ${hoverTextClass} transition-colors`}>
             {name}
           </p>
           {verified && (
@@ -77,7 +77,7 @@ function AgencyCard({
             </svg>
           )}
         </div>
-        <p className="text-gray-500 text-sm">{description}</p>
+        <p className="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">{description}</p>
       </div>
     </Link>
   );
@@ -96,11 +96,11 @@ export function FeaturedAgencies() {
   };
 
   return (
-    <section className="w-full py-10 sm:py-12 md:py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-6 sm:mb-8 md:mb-10 flex items-center justify-between animate-fade-in-up">
-        <h3 className="text-2xl sm:text-3xl font-bold text-white">Featured Agencies</h3>
+    <section className="w-full max-w-6xl py-10 sm:py-12 md:py-16 overflow-hidden">
+      <div className="w-full mx-auto px-4 mb-6 sm:mb-8 md:mb-10 flex items-center justify-between animate-fade-in-up">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white dark:text-white light:text-gray-900">Featured Agencies</h3>
         <div className="flex gap-2">
-          <button className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all">
+          <button className="w-10 h-10 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 flex items-center justify-center text-white dark:text-white light:text-gray-900 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-primary/50 hover:scale-110 transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="20"
@@ -111,7 +111,7 @@ export function FeaturedAgencies() {
               <path d="M640-280H280v-60h360v60Zm0-170H280v-60h360v60Z" />
             </svg>
           </button>
-          <button className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all">
+          <button className="w-10 h-10 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 flex items-center justify-center text-white dark:text-white light:text-gray-900 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-primary/50 hover:scale-110 transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="20"
@@ -130,9 +130,9 @@ export function FeaturedAgencies() {
           // Loading skeleton
           Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="flex-none w-80 animate-pulse">
-              <div className="h-52 rounded-2xl bg-white/10 mb-5" />
-              <div className="h-6 w-3/4 bg-white/10 rounded mb-2" />
-              <div className="h-4 w-1/2 bg-white/10 rounded" />
+              <div className="h-52 rounded-2xl bg-white/10 dark:bg-white/10 light:bg-black/10 mb-5" />
+              <div className="h-6 w-3/4 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded mb-2" />
+              <div className="h-4 w-1/2 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded" />
             </div>
           ))
         ) : agencies.length === 0 ? (
