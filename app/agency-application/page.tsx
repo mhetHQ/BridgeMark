@@ -74,7 +74,7 @@ function StepIndicator() {
               </div>
               <span
                 className={`text-xs font-semibold uppercase tracking-wider hidden md:block ${
-                  isActive ? "text-primary" : isCompleted ? "text-white" : "text-gray-500"
+                  isActive ? "text-primary" : isCompleted ? "text-white dark:text-white light:text-gray-900" : "text-gray-500"
                 }`}
               >
                 {step.shortTitle}
@@ -126,34 +126,34 @@ function ApplicationContent() {
 export default function AgencyApplicationPage() {
   return (
     <ApplicationProvider>
-      <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+      <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
         {/* Background Effects */}
         <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
-        <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_30%_20%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_50%)]" />
-        <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_50%)]" />
-        <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 blur-[120px] pointer-events-none z-0" />
-        <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
+        <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_30%_20%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_50%)] light:hidden" />
+        <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_50%)] light:hidden" />
+        <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 dark:bg-secondary-accent/15 light:hidden light:bg-secondary-accent/10 blur-[120px] pointer-events-none z-0" />
+        <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0 light:hidden" />
 
         <Navbar />
 
         <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
           {/* Hero Section */}
           <section className="w-full max-w-4xl text-center mb-12">
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-md mb-6">
               <span className="w-2 h-2 rounded-full bg-secondary-accent animate-pulse shadow-[0_0_8px_rgba(189,0,255,1)]" />
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300">
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300 dark:text-gray-300 light:text-gray-600">
                 Agency Application
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-[-0.03em] mb-6">
-              join our
+              Join our
               <span className="bg-secondary-accent bg-clip-text text-transparent block mt-2">
                 curated network
               </span>
             </h1>
 
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               We&apos;re building the future of agency procurement. Apply to join an exclusive 
               ecosystem of top-tier Web3 and digital partners.
             </p>

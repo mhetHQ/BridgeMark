@@ -98,7 +98,7 @@ function AgencyCard({ agency }: { agency: Agency }) {
       <div>
         <div className="flex justify-between items-center mb-1">
           <p
-            className={`text-white text-xl font-bold ${hoverTextClass} transition-colors`}
+            className={`text-white dark:text-white light:text-gray-900 text-xl font-bold ${hoverTextClass} transition-colors`}
           >
             {agency.name}
           </p>
@@ -115,8 +115,8 @@ function AgencyCard({ agency }: { agency: Agency }) {
             </svg>
           )}
         </div>
-        <p className="text-gray-500 text-sm mb-2 line-clamp-2">{agency.description}</p>
-        <div className="flex items-center gap-4 text-xs text-gray-400">
+        <p className="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm mb-2 line-clamp-2">{agency.description}</p>
+        <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-400 light:text-gray-500">
           <span className="flex items-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +192,7 @@ function SearchInput({
         placeholder="Search agencies, services, specialties..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3.5 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+        className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl pl-12 pr-4 py-3.5 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
       />
     </div>
   );
@@ -214,10 +214,10 @@ function FilterDropdown({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all cursor-pointer"
+        className="w-full appearance-none bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-4 py-3.5 text-white dark:text-white light:text-gray-900 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all cursor-pointer"
       >
         {options.map((option) => (
-          <option key={option} value={option} className="bg-black text-white">
+          <option key={option} value={option} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
             {option}
           </option>
         ))}
@@ -270,21 +270,21 @@ export default function AgenciesPage() {
   const isLoading = agencies === undefined;
 
   return (
-    <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
       {/* Background Effects */}
-      <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_60%)]" />
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
+      <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20 light:hidden" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_60%)] light:hidden" />
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 dark:bg-secondary-accent/15 light:hidden light:bg-secondary-accent/10 blur-[120px] pointer-events-none z-0" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0 light:hidden" />
 
       <Navbar />
 
       <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
         {/* Hero Section */}
         <section className="w-full max-w-7xl text-center mb-12">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-md mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,240,255,1)]" />
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300">
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300 dark:text-gray-300 light:text-gray-600">
               Agency Directory
             </span>
           </div>
@@ -296,7 +296,7 @@ export default function AgenciesPage() {
             </span>
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
             Browse our curated directory of top-tier agencies, verified and rated
             by real clients. Filter by specialty, location, or budget to find your
             match.
@@ -325,8 +325,8 @@ export default function AgenciesPage() {
             </div>
 
             {hasActiveFilters && (
-              <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/10">
-                <span className="text-sm text-gray-400">
+              <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 dark:border-white/10 light:border-black/10">
+                <span className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-500">
                   {isLoading ? "Loading..." : `${filteredAgencies.length} agencies found`}
                 </span>
                 <button
@@ -362,7 +362,7 @@ export default function AgenciesPage() {
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                   selectedCategory === category
                     ? "bg-primary text-black shadow-[0_0_15px_rgba(0,240,255,0.5)]"
-                    : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-primary/30"
+                    : "bg-white/5 dark:bg-white/5 light:bg-black/5 text-gray-300 dark:text-gray-300 light:text-gray-600 border border-white/10 dark:border-white/10 light:border-black/10 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-primary/30"
                 }`}
               >
                 {category}
@@ -377,10 +377,10 @@ export default function AgenciesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="animate-pulse">
-                  <div className="h-52 rounded-2xl bg-white/5 mb-5" />
-                  <div className="h-6 bg-white/5 rounded w-3/4 mb-2" />
-                  <div className="h-4 bg-white/5 rounded w-full mb-2" />
-                  <div className="h-4 bg-white/5 rounded w-1/2" />
+                  <div className="h-52 rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 mb-5" />
+                  <div className="h-6 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-3/4 mb-2" />
+                  <div className="h-4 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-full mb-2" />
+                  <div className="h-4 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-1/2" />
                 </div>
               ))}
             </div>
@@ -392,7 +392,7 @@ export default function AgenciesPage() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -406,10 +406,10 @@ export default function AgenciesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-2">
                 No agencies found
               </h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6">
                 Try adjusting your search or filters to find what you&apos;re looking
                 for.
               </p>
@@ -433,13 +433,13 @@ export default function AgenciesPage() {
               <h2 className="text-3xl md:text-4xl font-black mb-4">
                 Can&apos;t find the right fit?
               </h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg mb-8 max-w-xl mx-auto">
                 Let our AI-powered matching system find the perfect agency for your
                 specific needs. It only takes 2 minutes.
               </p>
               <Link
                 href="/get-matched"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-primary transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-white light:bg-black text-black dark:text-black light:text-white font-bold rounded-full hover:bg-primary transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)] light:shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]"
               >
                 Get Matched Now
                 <svg

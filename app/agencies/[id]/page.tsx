@@ -16,20 +16,20 @@ export default function AgencyProfilePage() {
   // Loading state
   if (agency === undefined) {
     return (
-      <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+      <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
         <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
         <Navbar />
         <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
           <div className="w-full max-w-6xl">
             <div className="animate-pulse">
-              <div className="h-72 md:h-96 rounded-3xl bg-white/5 mb-8" />
-              <div className="h-10 bg-white/5 rounded w-1/3 mb-4" />
-              <div className="h-6 bg-white/5 rounded w-2/3 mb-8" />
+              <div className="h-72 md:h-96 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-black/5 mb-8" />
+              <div className="h-10 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-1/3 mb-4" />
+              <div className="h-6 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-2/3 mb-8" />
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-4">
-                  <div className="h-4 bg-white/5 rounded w-full" />
-                  <div className="h-4 bg-white/5 rounded w-full" />
-                  <div className="h-4 bg-white/5 rounded w-3/4" />
+                  <div className="h-4 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-full" />
+                  <div className="h-4 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-full" />
+                  <div className="h-4 bg-white/5 dark:bg-white/5 light:bg-black/5 rounded w-3/4" />
                 </div>
               </div>
             </div>
@@ -43,13 +43,13 @@ export default function AgencyProfilePage() {
   // Not found state
   if (agency === null) {
     return (
-      <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+      <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
         <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
         <Navbar />
         <main className="relative z-10 flex flex-col items-center justify-center w-full min-h-[60vh] pt-32 pb-20 px-4 md:px-10">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Agency Not Found</h1>
-            <p className="text-gray-400 mb-8">The agency you&apos;re looking for doesn&apos;t exist or has been removed.</p>
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8">The agency you&apos;re looking for doesn&apos;t exist or has been removed.</p>
             <Link href="/agencies" className="px-6 py-3 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-colors">
               Browse Agencies
             </Link>
@@ -77,11 +77,11 @@ export default function AgencyProfilePage() {
   const backgroundImage = agency.coverImage || "/placeholder-agency.jpg";
 
   return (
-    <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_60%)]" />
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 blur-[120px] pointer-events-none z-0" />
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/15 dark:bg-secondary-accent/15 light:bg-secondary-accent/10 blur-[120px] pointer-events-none z-0" />
       <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
 
       <Navbar />
@@ -89,8 +89,8 @@ export default function AgencyProfilePage() {
       <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
         {/* Breadcrumb */}
         <div className="w-full max-w-6xl mb-8">
-          <nav className="flex items-center gap-2 text-sm text-gray-400">
-            <Link href="/agencies" className="hover:text-white transition-colors">
+          <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-400 light:text-gray-500">
+            <Link href="/agencies" className="hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors">
               Agencies
             </Link>
             <svg
@@ -105,7 +105,7 @@ export default function AgencyProfilePage() {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="text-white">{agency.name}</span>
+            <span className="text-white dark:text-white light:text-gray-900">{agency.name}</span>
           </nav>
         </div>
 
@@ -149,9 +149,9 @@ export default function AgencyProfilePage() {
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h1 className="text-4xl md:text-5xl font-black mb-2">{agency.name}</h1>
-                  <p className="text-xl text-gray-400">{agency.description}</p>
+                  <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600">{agency.description}</p>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
+                <div className="flex items-center gap-2 bg-white/5 dark:bg-white/5 light:bg-black/5 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 dark:border-white/10 light:border-black/10">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -164,27 +164,27 @@ export default function AgencyProfilePage() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-white font-bold text-lg">{agency.rating}</span>
-                  <span className="text-gray-400 text-sm">({agency.reviewCount} reviews)</span>
+                  <span className="text-white dark:text-white light:text-gray-900 font-bold text-lg">{agency.rating}</span>
+                  <span className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm">({agency.reviewCount} reviews)</span>
                 </div>
               </div>
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                 <div className="glass-card rounded-md p-4">
-                  <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Location</p>
-                  <p className="text-white font-semibold">{agency.location}</p>
+                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-xs uppercase tracking-wider mb-1">Location</p>
+                  <p className="text-white dark:text-white light:text-gray-900 font-semibold">{agency.location}</p>
                 </div>
                 <div className="glass-card rounded-md p-4">
-                  <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Founded</p>
-                  <p className="text-white font-semibold">{agency.founded}</p>
+                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-xs uppercase tracking-wider mb-1">Founded</p>
+                  <p className="text-white dark:text-white light:text-gray-900 font-semibold">{agency.founded}</p>
                 </div>
                 <div className="glass-card rounded-md p-4">
-                  <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Team Size</p>
-                  <p className="text-white font-semibold">{agency.teamSize}</p>
+                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-xs uppercase tracking-wider mb-1">Team Size</p>
+                  <p className="text-white dark:text-white light:text-gray-900 font-semibold">{agency.teamSize}</p>
                 </div>
                 <div className="glass-card rounded-md p-4">
-                  <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Min Budget</p>
+                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-xs uppercase tracking-wider mb-1">Min Budget</p>
                   <p className={`font-semibold ${accentColorClass}`}>{agency.minBudget}</p>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function AgencyProfilePage() {
               {/* About */}
               <div className="mb-10">
                 <h2 className="text-2xl font-bold mb-4">About</h2>
-                <p className="text-gray-300 leading-relaxed">{agency.longDescription}</p>
+                <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 leading-relaxed">{agency.longDescription}</p>
               </div>
 
               {/* Specialties */}
@@ -220,7 +220,7 @@ export default function AgencyProfilePage() {
                       className="flex items-center gap-3 p-4 glass-card rounded-xl"
                     >
                       <div className={`w-2 h-2 rounded-full ${accentBgClass}`} />
-                      <span className="text-white">{service}</span>
+                      <span className="text-white dark:text-white light:text-gray-900">{service}</span>
                     </div>
                   ))}
                 </div>
@@ -233,7 +233,7 @@ export default function AgencyProfilePage() {
                   {agency.industries.map((industry: string) => (
                     <span
                       key={industry}
-                      className="px-4 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-gray-300"
+                      className="px-4 py-2 rounded-full text-sm font-medium bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-gray-300 dark:text-gray-300 light:text-gray-600"
                     >
                       {industry}
                     </span>
@@ -288,7 +288,7 @@ export default function AgencyProfilePage() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <blockquote className="text-xl text-white leading-relaxed mb-6 relative z-10">
+                    <blockquote className="text-xl text-white dark:text-white light:text-gray-900 leading-relaxed mb-6 relative z-10">
                       &ldquo;{agency.testimonials[0].quote}&rdquo;
                     </blockquote>
                     <div className="flex items-center gap-3">
@@ -296,8 +296,8 @@ export default function AgencyProfilePage() {
                         {agency.testimonials[0].author.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-white font-semibold">{agency.testimonials[0].author}</p>
-                        <p className="text-gray-400 text-sm">{agency.testimonials[0].company}</p>
+                        <p className="text-white dark:text-white light:text-gray-900 font-semibold">{agency.testimonials[0].author}</p>
+                        <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm">{agency.testimonials[0].company}</p>
                       </div>
                     </div>
                   </div>
@@ -335,7 +335,7 @@ export default function AgencyProfilePage() {
                       href={agency.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 hover:border-white/20 transition-all"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-gray-900 font-bold rounded-xl hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 transition-all"
                     >
                       Visit Website
                       <svg
@@ -354,8 +354,8 @@ export default function AgencyProfilePage() {
                   )}
                 </div>
 
-                <div className="border-t border-white/10 pt-6">
-                  <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                <div className="border-t border-white/10 dark:border-white/10 light:border-black/10 pt-6">
+                  <h4 className="text-sm font-semibold text-gray-400 dark:text-gray-400 light:text-gray-500 uppercase tracking-wider mb-4">
                     Quick Info
                   </h4>
                   <div className="space-y-4">
@@ -372,7 +372,7 @@ export default function AgencyProfilePage() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-gray-300">{agency.location}</span>
+                      <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">{agency.location}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <svg
@@ -383,7 +383,7 @@ export default function AgencyProfilePage() {
                       >
                         <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
                       </svg>
-                      <span className="text-gray-300">{agency.teamSize} employees</span>
+                      <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">{agency.teamSize} employees</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <svg
@@ -398,7 +398,7 @@ export default function AgencyProfilePage() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-gray-300">Founded {agency.founded}</span>
+                      <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">Founded {agency.founded}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <svg
@@ -415,12 +415,12 @@ export default function AgencyProfilePage() {
                         />
                         <path d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z" />
                       </svg>
-                      <span className="text-gray-300">From {agency.minBudget}</span>
+                      <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">From {agency.minBudget}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-6 mt-6">
+                <div className="border-t border-white/10 dark:border-white/10 light:border-black/10 pt-6 mt-6">
                   <p className="text-xs text-gray-500 text-center">
                     Protected by Bridgemark&apos;s secure messaging and smart contracts
                   </p>
@@ -434,7 +434,7 @@ export default function AgencyProfilePage() {
         <section className="w-full max-w-6xl mt-12">
           <Link
             href="/agencies"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-gray-400 dark:text-gray-400 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

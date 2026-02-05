@@ -1,5 +1,6 @@
 "use client";
 
+import { Navbar } from "@/components/Navbar";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -90,98 +91,50 @@ export default function GetMatchedPage() {
   };
 
   return (
-    <div className="dark w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col">
+    <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden flex flex-col">
       {/* Background Effects */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0 light:hidden">
         <div className="absolute inset-0 dot-grid opacity-20" />
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-secondary-accent/20 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] bg-primary/20 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-secondary-accent/20 dark:bg-secondary-accent/20 light:bg-secondary-accent/10 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] bg-primary/20 dark:bg-primary/20 light:bg-primary/10 rounded-full blur-[120px] opacity-60" />
         <div className="absolute top-[40%] left-[20%] w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] opacity-40" />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none">
-        <div className="pointer-events-auto bg-black/70 backdrop-blur-xl border border-white/10 rounded-full pl-6 pr-2 py-2.5 flex items-center gap-8 shadow-[0_0_40px_rgba(0,0,0,0.8)] max-w-4xl mx-auto transition-all duration-300 hover:border-white/20">
-          <Link
-            className="flex items-center gap-2.5 text-white hover:opacity-80 transition-opacity group"
-            href="/"
-          >
-            <div className="size-7 text-primary group-hover:drop-shadow-[0_0_8px_rgba(0,240,255,0.8)] transition-all duration-300">
-              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  clipRule="evenodd"
-                  d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM24 40C32.8366 40 40 32.8366 40 24C40 15.1634 32.8366 8 24 8C15.1634 8 8 15.1634 8 24C8 32.8366 15.1634 40 24 40Z"
-                  fill="currentColor"
-                  fillOpacity="0.3"
-                  fillRule="evenodd"
-                />
-                <path d="M24 12L14 36H34L24 12Z" fill="currentColor" />
-              </svg>
-            </div>
-            <h2 className="text-white text-xl font-black tracking-tight">bridgemark</h2>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] text-sm font-semibold transition-all"
-              href="/#agencies"
-            >
-              Agencies
-            </Link>
-            <Link
-              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] text-sm font-semibold transition-all"
-              href="/#marketplace"
-            >
-              Marketplace
-            </Link>
-            <Link
-              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] text-sm font-semibold transition-all"
-              href="/#about"
-            >
-              About
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-white text-black hover:bg-primary transition-colors duration-300 text-sm font-bold leading-normal tracking-wide shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)]">
-              <span className="truncate">Find Agency</span>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-start pt-32 pb-20 px-4 md:px-10 lg:px-20">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-start pt-32 pb-20 px-4 md:px-10 lg:px-20 mt-10">
         <div className="w-full max-w-[800px] flex flex-col items-center">
           {/* Header */}
           <div className="text-center mb-12 relative w-full">
             <div className="absolute -top-10 left-[10%] md:left-[20%] animate-bounce z-10 hidden sm:block" style={{ animationDuration: "3s" }}>
-              <div className="flex items-center gap-x-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 px-4 py-1.5 -rotate-3 hover:rotate-0 transition-transform cursor-default">
+              <div className="flex items-center gap-x-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 px-4 py-1.5 -rotate-3 hover:rotate-0 transition-transform cursor-default">
                 <span className="text-xs">⚡</span>
-                <p className="text-gray-300 text-xs font-semibold uppercase tracking-wide">Fast Matching</p>
+                <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-semibold uppercase tracking-wide">Fast Matching</p>
               </div>
             </div>
             <div className="absolute -top-4 right-[5%] md:right-[15%] animate-bounce z-10 hidden sm:block" style={{ animationDuration: "4s" }}>
-              <div className="flex items-center gap-x-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 px-4 py-1.5 rotate-6 hover:rotate-0 transition-transform cursor-default">
+              <div className="flex items-center gap-x-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 px-4 py-1.5 rotate-6 hover:rotate-0 transition-transform cursor-default">
                 <span className="text-xs">✨</span>
-                <p className="text-gray-300 text-xs font-semibold uppercase tracking-wide">Top 1% Talent</p>
+                <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-semibold uppercase tracking-wide">Top 1% Talent</p>
               </div>
             </div>
 
-            <h1 className="text-white tracking-tighter text-5xl md:text-7xl font-black leading-[0.95] mb-6">
+            <h1 className="text-white dark:text-white light:text-gray-900 tracking-tighter text-5xl md:text-7xl font-black leading-[0.95] mb-6">
               Tell us what<br />
               <span className="bg-clip-text text-transparent bg-primary">
                 you need.
               </span>
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl font-normal max-w-lg mx-auto leading-relaxed">
+            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl font-normal max-w-lg mx-auto leading-relaxed">
               Connect with premium marketing agencies tailored to your unique requirements in under 24 hours.
             </p>
           </div>
 
           {/* Form Card */}
           <div className="w-full glass-card rounded-[2rem] p-6 md:p-10 relative overflow-hidden group transition-all duration-500">
-         
+
             {status === "success" ? (
               /* Success State */
               <div className="relative z-10 flex flex-col items-center justify-center py-12 text-center">
@@ -190,14 +143,14 @@ export default function GetMatchedPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">We&apos;re on it! 🚀</h3>
-                <p className="text-gray-400 max-w-md mb-6">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-3">We&apos;re on it! 🚀</h3>
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-md mb-6">
                   Your request has been submitted successfully. Check your inbox for a confirmation email.
                   We&apos;ll match you with top agencies within 24 hours.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="text-primary hover:text-white transition-colors text-sm font-semibold"
+                  className="text-primary hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors text-sm font-semibold"
                 >
                   Submit another request →
                 </button>
@@ -215,11 +168,11 @@ export default function GetMatchedPage() {
                 {/* Name and Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="name">
+                    <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="name">
                       Your Name <span className="text-red-400">*</span>
                     </label>
                     <input
-                      className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white text-base font-medium placeholder:text-gray-500 hover:border-white/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 px-5 py-4 text-white dark:text-white light:text-gray-900 text-base font-medium placeholder:text-gray-500 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                       id="name"
                       placeholder="John Doe"
                       type="text"
@@ -229,11 +182,11 @@ export default function GetMatchedPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="email">
+                    <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="email">
                       Email Address <span className="text-red-400">*</span>
                     </label>
                     <input
-                      className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white text-base font-medium placeholder:text-gray-500 hover:border-white/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 px-5 py-4 text-white dark:text-white light:text-gray-900 text-base font-medium placeholder:text-gray-500 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                       id="email"
                       placeholder="john@company.com"
                       type="email"
@@ -247,32 +200,32 @@ export default function GetMatchedPage() {
                 {/* Budget and Industry */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="budget">
+                    <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="budget">
                       Estimated Budget <span className="text-red-400">*</span>
                     </label>
                     <select
-                      className="w-full appearance-none rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white text-base font-medium hover:border-white/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all cursor-pointer"
+                      className="w-full appearance-none rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 px-5 py-4 text-white dark:text-white light:text-gray-900 text-base font-medium hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all cursor-pointer"
                       id="budget"
                       required
                       value={budget}
                       onChange={(e) => setBudget(e.target.value)}
                     >
-                      <option value="" disabled className="bg-black text-gray-400">
+                      <option value="" disabled className="bg-black dark:bg-black light:bg-white text-gray-400">
                         Select a range
                       </option>
                       {budgets.map((b) => (
-                        <option key={b.value} value={b.value} className="bg-black text-white">
+                        <option key={b.value} value={b.value} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
                           {b.label}
                         </option>
                       ))}
                     </select>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="industry">
+                    <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="industry">
                       Industry <span className="text-red-400">*</span>
                     </label>
                     <input
-                      className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white text-base font-medium placeholder:text-gray-500 hover:border-white/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 px-5 py-4 text-white dark:text-white light:text-gray-900 text-base font-medium placeholder:text-gray-500 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                       id="industry"
                       placeholder="e.g. Fintech, E-commerce"
                       type="text"
@@ -285,7 +238,7 @@ export default function GetMatchedPage() {
 
                 {/* Service Type */}
                 <div className="flex flex-col gap-3">
-                  <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1 flex items-center gap-2">
+                  <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1 flex items-center gap-2">
                     Service Type <span className="text-red-400">*</span>
                     <span className="text-gray-500 font-normal normal-case">(Select all that apply)</span>
                   </label>
@@ -295,11 +248,10 @@ export default function GetMatchedPage() {
                         key={service.id}
                         type="button"
                         onClick={() => toggleService(service.id)}
-                        className={`flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-medium transition-all ${
-                          selectedServices.includes(service.id)
+                        className={`flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-medium transition-all ${selectedServices.includes(service.id)
                             ? "border-primary bg-primary/20 text-primary shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                            : "border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/10"
-                        }`}
+                            : "border-white/10 dark:border-white/10 light:border-black/10 bg-white/5 dark:bg-white/5 light:bg-black/5 text-gray-400 dark:text-gray-400 light:text-gray-600 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10"
+                          }`}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -322,7 +274,7 @@ export default function GetMatchedPage() {
 
                 {/* Timeline */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1">
+                  <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1">
                     Timeline <span className="text-red-400">*</span>
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -331,11 +283,10 @@ export default function GetMatchedPage() {
                         key={timeline.id}
                         type="button"
                         onClick={() => setSelectedTimeline(timeline.id)}
-                        className={`rounded-2xl border py-3 px-2 text-sm font-medium transition-all ${
-                          selectedTimeline === timeline.id
+                        className={`rounded-2xl border py-3 px-2 text-sm font-medium transition-all ${selectedTimeline === timeline.id
                             ? "border-primary bg-primary/10 text-primary ring-1 ring-primary"
-                            : "border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/10"
-                        }`}
+                            : "border-white/10 dark:border-white/10 light:border-black/10 bg-white/5 dark:bg-white/5 light:bg-black/5 text-gray-400 dark:text-gray-400 light:text-gray-600 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10"
+                          }`}
                       >
                         {timeline.label}
                       </button>
@@ -345,11 +296,11 @@ export default function GetMatchedPage() {
 
                 {/* Project Details */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-300 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="details">
+                  <label className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-xs font-bold uppercase tracking-widest pl-1" htmlFor="details">
                     Project Details
                   </label>
                   <textarea
-                    className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white text-base font-medium placeholder:text-gray-500 hover:border-white/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none transition-all"
+                    className="w-full rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 px-5 py-4 text-white dark:text-white light:text-gray-900 text-base font-medium placeholder:text-gray-500 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none transition-all"
                     id="details"
                     placeholder="Describe your goals, target audience, and any specific requirements..."
                     rows={3}
@@ -359,7 +310,7 @@ export default function GetMatchedPage() {
                 </div>
 
                 {/* Divider */}
-                <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent my-1" />
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 dark:via-white/10 light:via-black/10 to-transparent my-1" />
 
                 {/* Submit Button */}
                 <button
@@ -421,10 +372,10 @@ export default function GetMatchedPage() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 w-full border-t border-white/5 bg-black py-12">
+      <footer className="relative z-10 w-full border-t border-white/5 dark:border-white/5 light:border-black/5 bg-black dark:bg-black light:bg-background-light py-12">
         <div className="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="size-6 text-white opacity-50">
+            <div className="size-6 text-white dark:text-white light:text-gray-900 opacity-50">
               <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                 <path
                   clipRule="evenodd"
@@ -436,13 +387,13 @@ export default function GetMatchedPage() {
                 <path d="M24 14L16 34H32L24 14Z" fill="currentColor" />
               </svg>
             </div>
-            <p className="text-gray-600 text-sm">© 2024 Bridgemark. All rights reserved.</p>
+            <p className="text-gray-600 dark:text-gray-600 light:text-gray-500 text-sm">© 2024 Bridgemark. All rights reserved.</p>
           </div>
           <div className="flex gap-8">
-            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="/terms">
+            <Link className="text-gray-600 dark:text-gray-600 light:text-gray-500 hover:text-primary transition-colors text-sm font-medium" href="/terms">
               Terms
             </Link>
-            <Link className="text-gray-600 hover:text-primary transition-colors text-sm font-medium" href="/privacy">
+            <Link className="text-gray-600 dark:text-gray-600 light:text-gray-500 hover:text-primary transition-colors text-sm font-medium" href="/privacy">
               Privacy
             </Link>
           </div>
