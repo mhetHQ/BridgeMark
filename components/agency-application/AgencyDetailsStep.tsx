@@ -35,7 +35,7 @@ function FormInput({
 }: FormInputProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -47,10 +47,10 @@ function FormInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         maxLength={maxLength}
-        className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
+        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -88,7 +88,7 @@ function FormTextarea({
 }: FormTextareaProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -100,10 +100,10 @@ function FormTextarea({
         placeholder={placeholder}
         maxLength={maxLength}
         rows={rows}
-        className={`w-full bg-white/5 border rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
+        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-lg px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -139,7 +139,7 @@ function FormSelect({
 }: FormSelectProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -148,17 +148,17 @@ function FormSelect({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full appearance-none bg-white/5 border rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all cursor-pointer ${
+        className={`w-full appearance-none bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 focus:outline-none focus:ring-1 transition-all cursor-pointer ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         } ${!value ? "text-gray-500" : ""}`}
       >
-        <option value="" className="bg-black">
+        <option value="" className="bg-black dark:bg-black light:bg-white">
           {placeholder}
         </option>
         {options.map((option) => (
-          <option key={option} value={option} className="bg-black text-white">
+          <option key={option} value={option} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
             {option}
           </option>
         ))}
@@ -197,7 +197,7 @@ function MultiSelect({
 
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white">
+      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
         <span className="text-gray-500 font-normal ml-2">
@@ -216,7 +216,7 @@ function MultiSelect({
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                 isSelected
                   ? "bg-primary text-black"
-                  : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  : "bg-white/5 dark:bg-white/5 light:bg-black/5 text-gray-300 dark:text-gray-300 light:text-gray-600 border border-white/10 dark:border-white/10 light:border-black/10 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
               }`}
             >
               {option}
@@ -239,7 +239,7 @@ interface ImageUploadProps {
 function ImageUpload({ label, endpoint, value, onChange }: ImageUploadProps) {
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white">{label}</label>
+      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">{label}</label>
       {value ? (
         <div className="relative group">
           <img

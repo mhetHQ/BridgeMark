@@ -42,7 +42,7 @@ function TagInput({
 
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white">
+      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
         <span className="text-gray-500 font-normal ml-2">
@@ -50,10 +50,10 @@ function TagInput({
         </span>
       </label>
       <div
-        className={`bg-white/5 border rounded-xl p-3 focus-within:ring-1 transition-all ${
+        className={`bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl p-3 focus-within:ring-1 transition-all ${
           error
             ? "border-red-500 focus-within:ring-red-500/50"
-            : "border-white/10 focus-within:border-primary/50 focus-within:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus-within:border-primary/50 focus-within:ring-primary/50"
         }`}
       >
         <div className="flex flex-wrap gap-2 mb-2">
@@ -66,7 +66,7 @@ function TagInput({
               <button
                 type="button"
                 onClick={() => removeTag(tag)}
-                className="hover:text-white transition-colors"
+                className="hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ function TagInput({
           onKeyDown={handleKeyDown}
           placeholder={tags.length >= maxTags ? `Maximum ${maxTags} items` : placeholder}
           disabled={tags.length >= maxTags}
-          className="w-full bg-transparent text-white placeholder:text-gray-500 focus:outline-none disabled:opacity-50"
+          className="w-full bg-transparent text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none disabled:opacity-50"
         />
       </div>
       {error && <p className="text-red-400 text-sm">{error}</p>}

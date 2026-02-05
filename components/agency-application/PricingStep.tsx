@@ -32,7 +32,7 @@ function FormSelect({
 
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -41,23 +41,23 @@ function FormSelect({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full appearance-none bg-white/5 border rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all cursor-pointer ${
+        className={`w-full appearance-none bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 focus:outline-none focus:ring-1 transition-all cursor-pointer ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         } ${!value ? "text-gray-500" : ""}`}
       >
-        <option value="" className="bg-black">
+        <option value="" className="bg-black dark:bg-black light:bg-white">
           {placeholder}
         </option>
         {isObjectOptions
           ? (options as { value: string; label: string }[]).map((option) => (
-              <option key={option.value} value={option.value} className="bg-black text-white">
+              <option key={option.value} value={option.value} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
                 {option.label}
               </option>
             ))
           : (options as string[]).map((option) => (
-              <option key={option} value={option} className="bg-black text-white">
+              <option key={option} value={option} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
                 {option}
               </option>
             ))}
@@ -90,7 +90,7 @@ function FormTextarea({
 }: FormTextareaProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
       </label>
       <textarea
@@ -101,10 +101,10 @@ function FormTextarea({
         placeholder={placeholder}
         maxLength={maxLength}
         rows={rows}
-        className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
+        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -136,7 +136,7 @@ function FormInput({
 }: FormInputProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white">
+      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
         {label}
       </label>
       <input
@@ -146,10 +146,10 @@ function FormInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
+        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {error && <p className="text-red-400 text-sm">{error}</p>}
