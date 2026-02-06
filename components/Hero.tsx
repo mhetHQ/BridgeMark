@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link"; // <--- 1. Import this
 
 const FloatingLines = dynamic(() => import("@/components/ui/FloatingLines"), {
   ssr: false,
@@ -23,14 +24,13 @@ export function Hero() {
           parallax={true}
           linesGradient={["#00F0FF", "#00C8FF", "#8B00FF", "#BD00FF"]}
         />
-        {/* Smooth blending gradients - Dark mode */}
+        {/* ... (Your existing gradients remain here) ... */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent dark:block light:hidden" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent opacity-60 dark:block light:hidden" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent dark:block light:hidden" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent dark:block light:hidden" />
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent dark:block light:hidden" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent dark:block light:hidden" />
-        {/* Smooth blending gradients - Light mode */}
         <div className="absolute inset-0 bg-gradient-to-t from-background-light via-background-light/50 to-transparent dark:hidden light:block" />
         <div className="absolute inset-0 bg-gradient-to-b from-background-light via-transparent to-transparent opacity-60 dark:hidden light:block" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background-light to-transparent dark:hidden light:block" />
@@ -58,7 +58,12 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-6 sm:mt-10 w-full justify-center animate-fade-in-up animation-delay-400 px-2">
-          <button className="group flex w-full sm:w-auto sm:min-w-[200px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-white dark:bg-white light:bg-black backdrop-blur-3xl hover:bg-right transition-all duration-500 text-black dark:text-black light:text-white text-base sm:text-lg font-bold">
+          
+          {/* BUTTON 1: CHANGED TO LINK */}
+          <Link 
+            href="/get-matched" 
+            className="group flex w-full sm:w-auto sm:min-w-[200px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-white dark:bg-white light:bg-black backdrop-blur-3xl hover:bg-right transition-all duration-500 text-black dark:text-black light:text-white text-base sm:text-lg font-bold"
+          >
             <span className="relative z-10 flex items-center gap-2">
               Get Matched
               <svg
@@ -72,11 +77,16 @@ export function Hero() {
                 <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Z" />
               </svg>
             </span>
-          </button>
+          </Link>
 
-          <button className="flex w-full sm:w-auto sm:min-w-[200px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-black/40 dark:bg-black/40 light:bg-white/80 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 text-base sm:text-lg font-medium backdrop-blur-md transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] hover:-translate-y-1">
+          {/* BUTTON 2: CHANGED TO LINK */}
+          <Link 
+            href="/agencies"
+            className="flex w-full sm:w-auto sm:min-w-[200px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-black/40 dark:bg-black/40 light:bg-white/80 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 text-base sm:text-lg font-medium backdrop-blur-md transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] hover:-translate-y-1"
+          >
             <span>View Agencies</span>
-          </button>
+          </Link>
+
         </div>
       </div>
     </section>
