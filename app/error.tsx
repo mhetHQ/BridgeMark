@@ -38,7 +38,7 @@ export default function Error({
           </svg>
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Something went wrong
+          Something went wrong.
         </h2>
         <p className="text-gray-400 text-lg mb-8">
           We apologize for the inconvenience. Please try again or contact support if the problem persists.
