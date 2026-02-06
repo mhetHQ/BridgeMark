@@ -94,7 +94,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-4">8. Contact Us</h2>
               <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
                 If you have questions about this Privacy Policy or wish to exercise your rights, 
-                please contact us at privacy@bridgemark.io
+                please contact us at privacy@bridgemark.tech
               </p>
             </section>
           </div>

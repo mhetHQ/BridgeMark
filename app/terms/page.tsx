@@ -79,7 +79,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-4">8. Contact</h2>
               <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
-                For questions about these Terms of Service, please contact us at legal@bridgemark.io
+                For questions about these Terms of Service, please contact us at legal@bridgemark.tech
               </p>
             </section>
           </div>

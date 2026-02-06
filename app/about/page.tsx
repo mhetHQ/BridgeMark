@@ -38,25 +38,15 @@ const team = [
     role: "CEO & Co-Founder",
     bio: "",
     image: "/Mhet_Pic.jpeg",
+    twitter: "https://x.com/mhetHQ", 
   },
   {
     name: "Deedaro",
     role: "CTO & Co-Founder",
-    // bio: "Ex-Google engineer. Blockchain enthusiast and AI researcher.",
+    // bio: "Ex-Google engineer...",
     image: "/Deedaro_pic.png",
+    twitter: "https://x.com/Deedaro", 
   },
-  // {
-  //   name: "Marcus Johnson",
-  //   role: "Head of Partnerships",
-  //   bio: "Built agency networks at two Fortune 500 companies.",
-  //   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-  // },
-  // {
-  //   name: "Elena Rodriguez",
-  //   role: "Head of Product",
-  //   bio: "Product leader with experience at Stripe and Figma.",
-  //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-  // },
 ];
 
 const milestones = [
@@ -235,44 +225,58 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="w-full max-w-6xl mb-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Meet the <span className="text-transparent bg-clip-text bg-primary">Team</span>
-            </h2>
-            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
-              A diverse group of innovators, marketers, and technologists united by a shared vision.
-            </p>
-          </div>
+            {/* Team Section */}
+    <section className="w-full max-w-6xl mb-24 mx-auto"> {/* Added mx-auto to ensure section itself is centered */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-5xl font-black mb-4">
+          Meet the <span className="text-transparent bg-clip-text bg-primary">Team</span>
+        </h2>
+        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
+          A diverse group of innovators, marketers, and technologists united by a shared vision.
+        </p>
+      </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
+      {/* UPDATED CONTAINER */}
+      <div className="flex flex-wrap justify-center gap-6">
+        {team.map((member) => (
+          <div
+            key={member.name}
+            // Added w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] max-w-sm to maintain the sizing logic you had before
+            className="w-full sm:w-80 group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
+          >
+            <div className="relative flex flex-col h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl overflow-hidden border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all">
+              
+              {/* Twitter/X Link Wrapper */}
+              <a 
+                href={member.twitter} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="aspect-square overflow-hidden block cursor-pointer relative"
               >
-                <div className="relative flex flex-col h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl overflow-hidden border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all">
-                  <div className="aspect-square overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-lg group-hover:text-primary transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary/80 text-sm font-medium mb-2">{member.role}</p>
-                    <p className="text-gray-500 text-sm">{member.bio}</p>
-                  </div>
+                {/* Added hover overlay hint (optional, remove if you don't like it) */}
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                    <span className="text-white font-bold tracking-wider">VIEW PROFILE</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                />
+              </a>
+
+              <div className="p-6">
+                <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-lg group-hover:text-primary transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-primary/80 text-sm font-medium mb-2">{member.role}</p>
+                <p className="text-gray-500 text-sm">{member.bio}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
         {/* CTA Section */}
         <section className="w-full max-w-4xl">
           <div className="glass-card rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
