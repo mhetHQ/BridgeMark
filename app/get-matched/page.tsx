@@ -91,7 +91,7 @@ export default function GetMatchedPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden flex flex-col">
+    <div className="w-full bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden flex flex-col">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0 light:hidden">
         <div className="absolute inset-0 dot-grid opacity-20" />

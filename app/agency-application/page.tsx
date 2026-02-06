@@ -126,7 +126,7 @@ function ApplicationContent() {
 export default function AgencyApplicationPage() {
   return (
     <ApplicationProvider>
-      <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
+      <div className="w-full bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
         {/* Background Effects */}
         <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
         <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_30%_20%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_50%)] light:hidden" />

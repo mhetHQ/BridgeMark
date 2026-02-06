@@ -270,7 +270,7 @@ export default function AgenciesPage() {
   const isLoading = agencies === undefined;
 
   return (
-    <div className="w-full min-h-screen bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
+    <div className="w-full bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20 light:hidden" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.05)_0%,rgba(0,0,0,0)_60%)] light:hidden" />
