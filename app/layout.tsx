@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://bridgemark.io"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://bridgemark.tech"
   ),
   title: {
     default: "Bridgemark - Premium Agency Marketplace",
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://bridgemark.io",
+    url: "https://bridgemark.tech",
     siteName: "Bridgemark",
     title: "Bridgemark - Premium Agency Marketplace",
     description:
       "Connect with top-tier marketing agencies vetted by industry leaders. Experience the future of agency partnerships.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/bridgemark_logo.png",
         width: 1200,
         height: 630,
         alt: "Bridgemark - Premium Agency Marketplace",
@@ -73,14 +73,14 @@ export const metadata: Metadata = {
     title: "Bridgemark - Premium Agency Marketplace",
     description:
       "Connect with top-tier marketing agencies vetted by industry leaders.",
-    images: ["/og-image.png"],
+    images: ["/bridgemark_logo.png"],
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/bridgemark_logo.png" },
+      { url: "/bridgemark_logo.png", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/apple-touch-icon.png" }],
+    apple: [{ url: "/bridgemark_logo.png" }],
   },
   manifest: "/manifest.json",
 };
