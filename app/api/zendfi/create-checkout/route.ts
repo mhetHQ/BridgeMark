@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     // Amount is in base units (USDC has 6 decimals, so 20 USDC = 20_000_000 micro-units)
     // But ZendFi SDK expects human-readable amounts, so we pass 20 as a string
     const payment = await zendfi.createPayment({
-      amount: 2, // 20 USDC listing fee (string to avoid floating point issues)
+      amount: 0.2, // 20 USDC listing fee (string to avoid floating point issues)
       currency: "USD",
       token: "USDC",
       description: `BridgeMark Agency Listing Fee - ${agencyName}`,
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     // Store payment record in Convex for tracking
     await convex.mutation(api.payments.createPayment, {
       email,
-      amount: 2,
+      amount: 0.2,
       currency: "USDC",
       paymentProvider: "zendfi",
       paymentId: payment.id,
