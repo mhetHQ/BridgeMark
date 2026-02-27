@@ -20,7 +20,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
   const [error, setError] = useState<string | null>(null);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [paymentId, setPaymentId] = useState<string | null>(null);
-  
+
   const popupRef = useRef<Window | null>(null);
   const hasCreatedAgency = useRef(false);
   const [isVerifying, setIsVerifying] = useState(false);
@@ -131,6 +131,23 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
         paymentMethod: "crypto_USDC",
       });
 
+      // Send welcome email
+      try {
+        await fetch("/api/agencies/welcome", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: applicationData.agencyDetails.email,
+            name: applicationData.agencyDetails.name,
+          }),
+        });
+      } catch (emailErr) {
+        console.error("Failed to send welcome email:", emailErr);
+        // Do not block the agency registration success if email fails
+      }
+
       // Success! Navigate to success page
       onSuccess(result.slug);
     } catch (err) {
@@ -180,17 +197,17 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
   // Manually verify payment with ZendFi API (fallback when webhook doesn't work)
   const verifyPayment = async () => {
     if (!paymentId) return;
-    
+
     setIsVerifying(true);
     setError(null);
-    
+
     try {
       const response = await fetch(`/api/zendfi/check-status?paymentId=${paymentId}&verify=true`);
       const data = await response.json();
-      
+
       // Normalize status to lowercase for comparison
       const status = data.status?.toLowerCase();
-      
+
       if (status === "confirmed") {
         // Payment verified! Create agency immediately
         if (!hasCreatedAgency.current && paymentId) {
@@ -238,14 +255,14 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
 
       const { paymentId: newPaymentId, paymentUrl } = await response.json();
       setPaymentId(newPaymentId);
-      
+
       // Store payment ID in sessionStorage for recovery
       sessionStorage.setItem("bridgemark_pending_payment_id", newPaymentId);
 
       // Open ZendFi checkout in a new tab (more reliable than popup)
       // Using window.open with '_blank' opens a new tab
       const checkoutTab = window.open(paymentUrl, "_blank");
-      
+
       if (checkoutTab) {
         popupRef.current = checkoutTab;
       }
@@ -303,14 +320,14 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
           <div className="text-center">
             <p className="text-xl font-semibold text-white mb-2">Payment Tab Open</p>
             <p className="text-gray-400 mb-2">
-              {paymentRecord?.status === "pending" 
-                ? "Complete the payment in the new tab. This page will update automatically." 
+              {paymentRecord?.status === "pending"
+                ? "Complete the payment in the new tab. This page will update automatically."
                 : `Status: ${paymentRecord?.status || "pending"}...`}
             </p>
             <p className="text-sm text-gray-500">Payment ID: {paymentId}</p>
           </div>
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-          
+
           <div className="flex flex-col gap-3 items-center mt-4">
             {/* Verify Payment Button - Fallback when webhook doesn't work */}
             <button
@@ -320,11 +337,11 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
             >
               {isVerifying ? "Verifying..." : "I've Completed Payment - Verify Now"}
             </button>
-            
+
             {error && (
               <p className="text-red-400 text-sm text-center">{error}</p>
             )}
-            
+
             <p className="text-sm text-gray-400">
               Payment opens in a new tab. After completing payment, click verify above.
             </p>

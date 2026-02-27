@@ -120,7 +120,7 @@ export const getAgencyBySlug = query({
       .withIndex("by_slug", (q) => q.eq("slug", args.slug))
       .first();
 
-    if (!agency || agency.status === "suspended") {
+    if (!agency || agency.status !== "approved") {
       return null;
     }
 
@@ -132,7 +132,11 @@ export const getAgencyBySlug = query({
 export const getAgencyById = query({
   args: { id: v.id("agencies") },
   handler: async (ctx, args) => {
-    return await ctx.db.get(args.id);
+    const agency = await ctx.db.get(args.id);
+    if (!agency || agency.status !== "approved") {
+      return null;
+    }
+    return agency;
   },
 });
 
