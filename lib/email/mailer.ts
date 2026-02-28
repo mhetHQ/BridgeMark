@@ -88,9 +88,9 @@ export async function sendAdminNotification(
           </td>
           <td style="padding: 12px; background-color: #f8f9fa;">
             ${new Date(submission.createdAt).toLocaleString("en-US", {
-              dateStyle: "full",
-              timeStyle: "long",
-            })}
+    dateStyle: "full",
+    timeStyle: "long",
+  })}
           </td>
         </tr>
         <tr>
@@ -127,11 +127,11 @@ export async function sendAdminNotification(
           <td style="padding: 12px; font-weight: bold;">Services</td>
           <td style="padding: 12px;">
             ${submission.services
-              .map(
-                (s) =>
-                  `<span style="display: inline-block; background-color: #BD00FF; color: #fff; padding: 4px 10px; border-radius: 15px; margin: 2px; font-size: 12px;">${escapeHtml(s)}</span>`
-              )
-              .join(" ")}
+      .map(
+        (s) =>
+          `<span style="display: inline-block; background-color: #BD00FF; color: #fff; padding: 4px 10px; border-radius: 15px; margin: 2px; font-size: 12px;">${escapeHtml(s)}</span>`
+      )
+      .join(" ")}
           </td>
         </tr>
         <tr>
@@ -328,6 +328,93 @@ function escapeHtml(text: string): string {
     '"': "&quot;",
     "'": "&#39;",
   };
-  
+
   return text.replace(/[&<>"']/g, (char) => htmlEscapes[char] || char);
 }
+
+/**
+ * Sends a welcome email to the agency upon successful registration.
+ * 
+ * @param email - The agency's email address
+ * @param name - The agency's name
+ * @throws Error if email sending fails
+ */
+export async function sendAgencyWelcome(
+  email: string,
+  name: string
+): Promise<void> {
+  const config = getConfig();
+  const resend = getResendClient();
+
+  const htmlContent = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <div style="text-align: center; padding: 30px 0; background: linear-gradient(135deg, #BD00FF 0%, #00F0FF 100%); border-radius: 12px 12px 0 0;">
+        <h1 style="color: white; margin: 0; font-size: 28px;">Bridgemark</h1>
+      </div>
+      
+      <div style="padding: 40px 30px; background-color: #ffffff;">
+        <h2 style="color: #1a1a2e; margin-top: 0;">
+          Welcome to Bridgemark, ${escapeHtml(name)}! 🎉
+        </h2>
+        
+        <p style="color: #444; line-height: 1.6; font-size: 16px;">
+          Thanks for completing your registration and joining our curated network of top-tier agencies.
+          Your application is currently under review by our team.
+        </p>
+        
+        <div style="background: linear-gradient(135deg, rgba(189,0,255,0.1) 0%, rgba(0,240,255,0.1) 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #00F0FF; margin: 25px 0;">
+          <p style="margin: 0; color: #333; font-size: 15px;">
+            <strong>⏱️ What's next?</strong><br/>
+            <span style="color: #666;">Our team will review your profile within 1-2 business days. Once approved, your agency will be listed in our directory and eligible for client matches.</span>
+          </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="https://bridgemark.com" 
+             style="display: inline-block; background: linear-gradient(90deg, #BD00FF 0%, #00F0FF 100%); 
+                    color: #000; padding: 14px 32px; text-decoration: none; border-radius: 50px; 
+                    font-weight: bold; font-size: 16px;">
+            Visit Bridgemark
+          </a>
+        </div>
+      </div>
+      
+      <div style="padding: 20px 30px; background-color: #1a1a2e; border-radius: 0 0 12px 12px; text-align: center;">
+        <p style="color: #888; font-size: 12px; margin: 0;">
+          © ${new Date().getFullYear()} Bridgemark. All rights reserved.
+        </p>
+      </div>
+    </div>
+  `;
+
+  try {
+    const { error } = await resend.emails.send({
+      from: config.fromEmail,
+      to: email,
+      subject: "Welcome to Bridgemark! Application Received 🎉",
+      html: htmlContent,
+      text: `
+Hi ${name},
+
+Welcome to Bridgemark! 
+
+Thanks for completing your registration and joining our curated network of top-tier agencies.
+Your application is currently under review by our team.
+
+What's next?
+Our team will review your profile within 1-2 business days. Once approved, your agency will be listed in our directory and eligible for client matches.
+
+Thank you,
+The Bridgemark Team
+      `.trim(),
+    });
+
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    console.error("[Mailer] Failed to send agency welcome:", error);
+    throw new Error("Failed to send welcome email");
+  }
+}
+

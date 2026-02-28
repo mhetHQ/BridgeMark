@@ -127,7 +127,7 @@ export function SuccessStep({ slug }: SuccessStepProps) {
           <p className="text-gray-500 text-sm">Your profile will be available at:</p>
           <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-4 py-3 inline-block">
             <code className="text-primary text-sm">
-              bridgemark.com/agencies/{slug}
+              bridgemark.tech/agencies/{slug}
             </code>
           </div>
         </div>
