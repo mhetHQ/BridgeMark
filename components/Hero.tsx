@@ -48,7 +48,7 @@ export function Hero() {
         </div>
 
         <h1 className="text-white dark:text-white light:text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-[-0.03em] drop-shadow-2xl animate-fade-in-up px-2">
-          The curated marketplace for marketing agencies
+          The curated marketplace for marketing and development agencies
         </h1>
 
         <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto animate-fade-in-up animation-delay-200 px-2">

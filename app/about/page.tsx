@@ -84,7 +84,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We started Bridgemark with a simple belief: finding the right marketing agency shouldn&apos;t feel like a gamble. 
+            We started Bridgemark with a simple belief: finding the right agency shouldn&apos;t feel like a gamble. 
             It should be transparent, efficient, and powered by technology that actually works for you.
           </p>
         </section>
