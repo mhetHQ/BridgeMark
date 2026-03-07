@@ -1,155 +1,178 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const features = [
+  {
+    tag: "Matching",
+    title: "AI-Powered Matching",
+    sub: "(soon)",
+    description:
+      "Our proprietary neural network analyzes millions of data points to find the perfect agency fit for your unique needs in seconds, not weeks.",
+  },
+  {
+    tag: "Contracts",
+    title: "Smart Contracts",
+    sub: "(soon)",
+    description:
+      "Secure and transparent agreements powered by blockchain technology.",
+  },
+  {
+    tag: "Quality",
+    title: "Verified Quality",
+    sub: "",
+    description:
+      "Every agency is rigorously vetted to ensure premium delivery standards.",
+  },
+  {
+    tag: "Network",
+    title: "Global Network",
+    sub: "",
+    description:
+      "Access a decentralized network of specialists from over 40 countries, collaborating seamlessly through our platform.",
+  },
+];
 
 export function Features() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+    gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 60, scale: 0.97 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: i * 0.12,
+          scrollTrigger: { trigger: section, start: "top 65%" },
+        }
+      );
+    });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full py-12 sm:py-16 md:py-20 max-w-6xl px-4">
-      <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 sm:gap-6 animate-fade-in-up">
-          <div className="flex flex-col gap-3 sm:gap-4 max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white dark:text-white light:text-gray-900 tracking-tight">
-              Why{" "}Bridgemark?
-            </h2>
-            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-base sm:text-lg">
-              We bridge the gap between ambition and execution with a futuristic
-              approach to agency matching.
+    <section ref={sectionRef} className="w-full py-20 sm:py-28 max-w-6xl px-4">
+      {/* Heading */}
+      <div ref={headingRef} className="flex flex-col gap-3 mb-14 sm:mb-20 opacity-0">
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
+          [Why BridgeMark]
+        </p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white light:text-gray-900 tracking-tight">
+          Why Bridgemark?
+        </h2>
+        <p className="text-gray-400 text-base sm:text-lg max-w-xl mt-1">
+          We bridge the gap between ambition and execution with a futuristic
+          approach to agency matching.
+        </p>
+      </div>
+
+      {/* Asymmetric bento grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+        {/* Large card */}
+        <div
+          ref={(el) => { itemRefs.current[0] = el; }}
+          className="opacity-0 col-span-1 md:col-span-7 border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col justify-between gap-8 group hover:border-white/[0.12] light:hover:border-black/[0.15] transition-colors duration-500 min-h-[240px]"
+        >
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-primary/60">
+            {features[0].tag}
+          </p>
+          <div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white light:text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
+              {features[0].title}{" "}
+              {features[0].sub && (
+                <span className="text-gray-400 text-lg font-normal">{features[0].sub}</span>
+              )}
+            </h3>
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg">
+              {features[0].description}
             </p>
           </div>
-          <Link
-            className="text-primary font-bold hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors flex items-center gap-2 group"
-            href="#learn-more"
-          >
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="16"
-              viewBox="0 -960 960 960"
-              width="16"
-              fill="currentColor"
-              className="group-hover:translate-x-1 transition-transform"
-            >
-              <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-            </svg>
-          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
-          {/* AI-Powered Matching - Large Card */}
-          <div className="col-span-1 md:col-span-7 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-slide-in-left hover-lift">
-            {/* <div className="absolute -right-16 -top-16 w-56 h-56 bg-secondary-accent/20 rounded-full blur-[80px] group-hover:bg-secondary-accent/30 transition-all duration-500 group-hover:scale-110" /> */}
-            <div className="relative z-10 flex flex-col h-full justify-between gap-6 sm:gap-8 md:gap-10">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary shadow-[0_0_20px_rgba(0,0,0,0.5)] dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] light:shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover:border-primary/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                  fill="currentColor"
-                  className="sm:w-[30px] sm:h-[30px]"
-                >
-                  <path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h120v-80q0-83 58.5-141.5T560-920q83 0 141.5 58.5T760-720v80h120q33 0 56.5 23.5T960-560v400q0 33-23.5 56.5T880-80H240Zm0-80h640v-400H240v400Zm320-120q33 0 56.5-23.5T640-360q0-33-23.5-56.5T560-440q-33 0-56.5 23.5T480-360q0 33 23.5 56.5T560-280ZM360-640h400v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3 group-hover:text-primary transition-colors">
-                  AI-Powered Matching (soon)
-                </h3>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Our proprietary neural network analyzes millions of data points
-                  to find the perfect agency fit for your unique needs in
-                  seconds, not weeks.
-                </p>
-              </div>
-            </div>
+        {/* Medium card */}
+        <div
+          ref={(el) => { itemRefs.current[1] = el; }}
+          className="opacity-0 col-span-1 md:col-span-5 border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col justify-between gap-8 group hover:border-white/[0.12] light:hover:border-black/[0.15] transition-colors duration-500 min-h-[240px]"
+        >
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-secondary-accent/60">
+            {features[1].tag}
+          </p>
+          <div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white light:text-gray-900 mb-3 group-hover:text-secondary-accent transition-colors duration-300">
+              {features[1].title}{" "}
+              {features[1].sub && (
+                <span className="text-gray-400 text-lg font-normal">{features[1].sub}</span>
+              )}
+            </h3>
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              {features[1].description}
+            </p>
           </div>
+        </div>
 
-          {/* Smart Contracts */}
-          <div className="col-span-1 md:col-span-5 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-slide-in-right hover-lift">
-            {/* <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-primary/20 rounded-full blur-[60px] group-hover:bg-primary/30 transition-all duration-500 group-hover:scale-110" /> */}
-            <div className="relative z-10 flex flex-col h-full justify-between gap-6 sm:gap-8 md:gap-10">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-secondary-accent shadow-[0_0_20px_rgba(0,0,0,0.5)] dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] light:shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover:border-secondary-accent/50 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                  fill="currentColor"
-                  className="sm:w-[30px] sm:h-[30px]"
-                >
-                  <path d="m438-338 226-226-57-57-169 169-84-84-57 57 141 141Zm42 258q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3 group-hover:text-secondary-accent transition-colors">
-                  Smart Contracts (soon)
-                </h3>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Secure and transparent agreements powered by blockchain
-                  technology.
-                </p>
-              </div>
-            </div>
+        {/* Small card */}
+        <div
+          ref={(el) => { itemRefs.current[2] = el; }}
+          className="opacity-0 col-span-1 md:col-span-4 border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col justify-between gap-8 group hover:border-white/[0.12] light:hover:border-black/[0.15] transition-colors duration-500 min-h-[200px]"
+        >
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-primary/60">
+            {features[2].tag}
+          </p>
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white light:text-gray-900 mb-2">
+              {features[2].title}
+            </h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              {features[2].description}
+            </p>
           </div>
+        </div>
 
-         
-          <div className="col-span-1 md:col-span-4 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 animate-fade-in-up animation-delay-200 hover-lift">
-            <div className="relative z-10 flex flex-col gap-4 sm:gap-6">
-              <div className="size-10 sm:size-12 rounded-lg sm:rounded-xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-110 transition-all duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="20"
-                  viewBox="0 -960 960 960"
-                  width="20"
-                  fill="currentColor"
-                  className="sm:w-[24px] sm:h-[24px]"
-                >
-                  <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-1 sm:mb-2">
-                  Verified Quality
-                </h3>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                  Every agency is rigorously vetted to ensure premium delivery
-                  standards.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Global Network */}
-          <div className="col-span-1 md:col-span-8 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden group transition-all duration-500 flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 animate-fade-in-up animation-delay-400 hover-lift">
-            <div className="relative z-10 flex-1 w-full md:w-auto">
-              <div className="size-12 sm:size-14 rounded-xl sm:rounded-2xl dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-gray-900 mb-4 sm:mb-6 group-hover:bg-white/10 dark:group-hover:bg-white/10 light:group-hover:bg-black/10 group-hover:scale-110 transition-all duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                  fill="currentColor"
-                  className="sm:w-[30px] sm:h-[30px]"
-                >
-                  <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-41-8t-42-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z" />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-2 sm:mb-3">
-                Global Network
-              </h3>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
-                Access a decentralized network of specialists from over 40
-                countries, collaborating seamlessly through our platform.
-              </p>
-            </div>
-            <div className="flex-1 w-full h-32 sm:h-40 rounded-xl bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 light:border-black/10 overflow-hidden relative group-hover:border-primary/30 transition-all duration-300">
-              <div
-                className="absolute inset-0 bg-cover bg-center dark:opacity-60 dark:mix-blend-lighten group-hover:scale-105 transition-transform duration-500"
-                style={{
-                  backgroundImage:
-                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk38v0HPrUv9OKRwPHkBCaZmHwDMGTEfGsxqOePuzVOGV_lKt2Fu1tWBL8GPmtu4GIXsWRC9RK6F9vwUr8rQXTGIgk-03Q1OyuK9uKoSFYp9kU19VbcbByNi5uD-tGmrRRwApBs8NlTOwEr3FlfylKrfnabAoopbhUtmjEYoWGOdxOItmFwGaTL_YDr-kknhcpiVvjlGGblQxt1Bx-_LKUixe1pr1KW8wqjKVDsQwmtK70jVAY3O1gLx2fzuPccLEGvH40CPGkaZ3x')",
-                }}
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 dark:from-black/80 light:from-gray-200/90 to-transparent" /> */}
-            </div>
+        {/* Wide card */}
+        <div
+          ref={(el) => { itemRefs.current[3] = el; }}
+          className="opacity-0 col-span-1 md:col-span-8 border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col justify-between gap-8 group hover:border-white/[0.12] light:hover:border-black/[0.15] transition-colors duration-500 min-h-[200px]"
+        >
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-secondary-accent/60">
+            {features[3].tag}
+          </p>
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white light:text-gray-900 mb-2">
+              {features[3].title}
+            </h3>
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg">
+              {features[3].description}
+            </p>
           </div>
         </div>
       </div>

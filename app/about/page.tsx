@@ -5,30 +5,25 @@ import { Footer } from "@/components/Footer";
 const stats = [
   { value: "2026", label: "Founded" },
   { value: "40+", label: "Projected Countries" },
-  { value: "500+", label: " Target Agencies" },
+  { value: "500+", label: "Target Agencies" },
   { value: "$50M+", label: "Aim Projects Facilitated" },
 ];
 
 const values = [
   {
-    title: "Transparency",
-    description: "Every interaction, every contract, every review is verifiable on-chain. No hidden fees, no surprises.",
-    icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
+    title: "Vetted Excellence",
+    description:
+      "We don't just list agencies; we curate talent through rigorous proof-of-work validation and peer reviews. Only the top 1% make it through.",
   },
   {
-    title: "Quality First",
-    description: "We rigorously vet every agency. Only the top 1% make it through our multi-stage verification process.",
-    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+    title: "Trustless Security",
+    description:
+      "Smart contract escrows ensure that funds are only released when milestones are met, protecting both parties without intermediaries.",
   },
   {
-    title: "Innovation",
-    description: "From AI-powered matching to smart contracts, we're building the future of agency partnerships.",
-    icon: "M13 10V3L4 14h7v7l9-11h-7z",
-  },
-  {
-    title: "Community",
-    description: "We're more than a marketplace. We're a global network of creators, strategists, and visionaries.",
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    title: "Radical Transparency",
+    description:
+      "Communication, timelines, and deliverables are immutable and visible to all stakeholders throughout the entire engagement journey.",
   },
 ];
 
@@ -38,287 +33,304 @@ const team = [
     role: "CEO & Co-Founder",
     bio: "",
     image: "/Mhet_Pic.jpeg",
-    twitter: "https://x.com/mhetHQ", 
+    twitter: "https://x.com/mhetHQ",
   },
   {
     name: "Deedaro",
     role: "CTO & Co-Founder",
-
+    bio: "",
     image: "/Deedaro_pic.png",
-    twitter: "https://x.com/deedaro_xp", 
+    twitter: "https://x.com/deedaro_xp",
   },
 ];
 
 const milestones = [
-  { year: "2026 Q1", title: "The Beginning", description: "Founded with a vision to revolutionize agency partnerships" },
-  // { year: "2026 Q2", title: "Seed Funding", description: "Raised $5M to build our AI matching technology" },
-  { year: "2026 Q1", title: "Platform Launch", description: "Launching with 50 vetted agencies across countries" },
-  { year: "2026 Q2", title: "Web3 Integration", description: "Introduced smart contracts and blockchain verification" },
-  { year: "2026 Q3", title: "Global Expansion", description: "Reaching 500+ agencies in 40+ countries" },
+  {
+    year: "2026 Q1",
+    title: "The Beginning",
+    description: "Founded with a vision to revolutionize agency partnerships",
+  },
+  {
+    year: "2026 Q1",
+    title: "Platform Launch",
+    description: "Launching with 50 vetted agencies across countries",
+  },
+  {
+    year: "2026 Q2",
+    title: "Web3 Integration",
+    description: "Introduced smart contracts and blockchain verification",
+  },
+  {
+    year: "2026 Q3",
+    title: "Global Expansion",
+    description: "Reaching 500+ agencies in 40+ countries",
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-black dark:bg-black light:bg-background-light text-white dark:text-white light:text-gray-900 overflow-x-hidden">
-      {/* Background Effects */}
-      <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-20" />
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(189,0,255,0.08)_0%,rgba(0,0,0,0)_60%)] light:hidden" />
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-accent/20 dark:bg-secondary-accent/20 light:hidden light:bg-secondary-accent/10 blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0 light:hidden" />
+    <div className="w-full bg-[var(--color-background-dark)] light:bg-[var(--color-background-light)] text-white light:text-gray-900 overflow-x-hidden">
+      <div className="noise-overlay" />
+      <div className="fixed inset-0 pointer-events-none z-0 dot-grid opacity-15" />
 
       <Navbar />
 
-      <main className="relative z-10 flex flex-col items-center w-full pt-32 pb-20 px-4 md:px-10">
-        {/* Hero Section */}
-        <section className="w-full max-w-6xl text-center mb-20">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-md mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,240,255,1)]" />
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-300 dark:text-gray-300 light:text-gray-600">Our Story</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-[-0.03em] mb-6">
-            Building the future of
-            <span className="light:bg-primary dark:bg-secondary-accent bg-clip-text text-transparent block mt-2">
-              agency partnerships
-            </span>
+      <main className="relative z-10 flex flex-col items-center w-full pt-36 pb-20 px-4">
+        {/* Hero */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-6">
+            [About]
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-[-0.03em] mb-6 max-w-4xl">
+            Professionalizing the{" "}
+            <span className="text-primary">Wild West of Web3</span>
           </h1>
-
-          <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We started Bridgemark with a simple belief: finding the right agency shouldn&apos;t feel like a gamble. 
-            It should be transparent, efficient, and powered by technology that actually works for you.
+          <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed">
+            Replacing vibe-based agreements with professional structure and
+            reliable delivery for the next generation of the internet.
           </p>
         </section>
 
-        {/* Stats Section */}
-        <section className="w-full max-w-6xl mb-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
+        {/* Stats */}
+        <section className="w-full max-w-5xl mb-24">
+          <div className="flex flex-col sm:flex-row items-stretch justify-between gap-8 sm:gap-0 py-12 border-y border-white/[0.06] light:border-black/[0.08]">
+            {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
+                className={`flex-1 flex flex-col items-center text-center gap-2 ${
+                  i < stats.length - 1
+                    ? "sm:border-r sm:border-white/[0.06] light:sm:border-black/[0.08]"
+                    : ""
+                }`}
               >
-                <div className="relative flex flex-col items-center gap-2 h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl p-8 border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all text-center">
-                  <p className="text-4xl md:text-5xl font-black text-white dark:text-white light:text-gray-900">{stat.value}</p>
-                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm font-medium uppercase tracking-wider">{stat.label}</p>
-                </div>
+                <span className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white light:text-gray-900">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-gray-600">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="w-full max-w-6xl mb-24">
-          <div className="glass-card rounded-3xl p-10 md:p-16 relative overflow-hidden">
-            {/* <div className="absolute -right-20 -top-20 w-72 h-72 bg-secondary-accent/20 rounded-full blur-[100px] pointer-events-none" /> */}
-            {/* <div className="absolute -left-20 -bottom-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] pointer-events-none" /> */}
+        {/* Bridging the Gap */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4">
+            [The Problem]
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white light:text-gray-900 mb-12 tracking-tight">
+            Bridging the Gap
+          </h2>
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-black mb-6">
-                  Our <span className="text-transparent bg-clip-text bg-secondary-accent">Mission</span>
-                </h2>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg leading-relaxed mb-6">
-                  To democratize access to world-class marketing talent by creating the most transparent, 
-                  efficient, and trustworthy marketplace in the industry.
-                </p>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg leading-relaxed">
-                  We leverage AI to match businesses with their perfect agency partners, and blockchain 
-                  technology to ensure every agreement is secure, transparent, and fair.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-secondary-accent/20 to-primary/20 p-8 border border-white/10 dark:border-white/10 light:border-black/10">
-                  <div className="w-full h-full rounded-xl bg-black/50 dark:bg-black/50 light:bg-gray-100 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-32 h-32 text-primary/50"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col gap-4">
+              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-red-400">
+                Before
+              </span>
+              <h4 className="font-bold text-white light:text-gray-900 text-xl">The Scrappy Past</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Unreliable collaborations, vague scopes, and &quot;vibe-based&quot;
+                trust that leads to friction, delays, and lost capital.
+              </p>
+            </div>
+            <div className="border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-8 sm:p-10 flex flex-col gap-4">
+              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-green-400">
+                After
+              </span>
+              <h4 className="font-bold text-white light:text-gray-900 text-xl">
+                The BridgeMark Future
+              </h4>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Structured workflows, escrow-backed security, and professional
+                agency standards built directly on-chain.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="w-full max-w-6xl mb-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
-              What We <span className="text-transparent bg-clip-text bg-primary">Stand For</span>
-            </h2>
-            <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
-              Our core values guide everything we do, from how we build our platform to how we treat our community.
-            </p>
+        {/* Mission */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4">
+            [Mission]
+          </p>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">
+                Our Mission
+              </h2>
+              <p className="text-gray-500 text-base sm:text-lg leading-relaxed mb-4">
+                To democratize access to world-class marketing talent by creating
+                the most transparent, efficient, and trustworthy marketplace in
+                the industry.
+              </p>
+              <p className="text-gray-500 text-base sm:text-lg leading-relaxed">
+                We leverage AI to match businesses with their perfect agency
+                partners, and blockchain technology to ensure every agreement is
+                secure, transparent, and fair.
+              </p>
+            </div>
+            <div className="border border-white/[0.06] light:border-black/[0.08] rounded-2xl aspect-square flex items-center justify-center">
+              <span className="text-6xl sm:text-7xl font-black text-white/[0.04] light:text-black/[0.06] select-none">
+                BM
+              </span>
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 gap-6">
+        {/* Values */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4">
+            [Values]
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white light:text-gray-900 mb-12 tracking-tight">
+            Core Values
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-px bg-white/[0.06] light:bg-black/[0.08] rounded-2xl overflow-hidden">
             {values.map((value) => (
               <div
                 key={value.title}
-                className="glass-card rounded-2xl p-8 group transition-all duration-500 hover:border-primary/40"
+                className="bg-[var(--color-background-dark)] light:bg-[var(--color-background-light)] p-7 sm:p-8 flex flex-col gap-4 group hover:bg-white/[0.02] light:hover:bg-black/[0.02] transition-colors duration-500"
               >
-                <div className="size-12 rounded-xl bg-white/5 dark:bg-white/5 light:bg-black/5 flex items-center justify-center border border-white/10 dark:border-white/10 light:border-black/10 text-primary mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all duration-300">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d={value.icon} />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-white light:text-gray-900 group-hover:text-primary transition-colors duration-300">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">{value.description}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="w-full max-w-4xl mb-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Our <span className="text-transparent bg-clip-text bg-secondary-accent">Journey</span>
-            </h2>
-          </div>
+        {/* Timeline */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4">
+            [Roadmap]
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white light:text-gray-900 mb-12 tracking-tight">
+            Our Journey
+          </h2>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary-accent to-primary/20" />
-
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={milestone.year}
-                  className={`relative flex items-center gap-8 ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 -ml-2 rounded-full bg-primary shadow-[0_0_15px_rgba(0,240,255,0.5)] z-10" />
-
-                  {/* Content */}
-                  <div className={`ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                    <div className="glass-card rounded-2xl p-6 inline-block">
-                      <span className="text-primary font-bold text-lg">{milestone.year}</span>
-                      <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-xl mt-1">{milestone.title}</h3>
-                      <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mt-2">{milestone.description}</p>
-                    </div>
-                  </div>
+          <div className="flex flex-col gap-0">
+            {milestones.map((milestone) => (
+              <div
+                key={milestone.title}
+                className="grid grid-cols-[100px_1fr] sm:grid-cols-[140px_1fr] gap-6 py-6 border-b border-white/[0.06] light:border-black/[0.08] last:border-b-0 group"
+              >
+                <span className="text-sm font-medium text-gray-600 pt-0.5">
+                  {milestone.year}
+                </span>
+                <div>
+                  <h3 className="text-white light:text-gray-900 font-bold text-base sm:text-lg group-hover:text-primary transition-colors duration-300">
+                    {milestone.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-1">
+                    {milestone.description}
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
-    {/* Team Section */}
-          <section className="w-full max-w-6xl mb-24 mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-black mb-4">
-                Meet the <span className="text-transparent bg-clip-text bg-primary">Team</span>
-              </h2>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg max-w-2xl mx-auto">
-                A diverse group of innovators, marketers, and technologists united by a shared vision.
-              </p>
-            </div>
+        {/* Philosophy Quote */}
+        <section className="w-full max-w-4xl mb-24">
+          <div className="border-y border-white/[0.06] light:border-black/[0.08] py-16 sm:py-20 text-center">
+            <blockquote className="text-2xl sm:text-3xl md:text-4xl font-black text-white light:text-gray-900 leading-tight max-w-3xl mx-auto mb-6">
+              &quot;Innovation shouldn&apos;t depend on memory, it deserves
+              structure.&quot;
+            </blockquote>
+            <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-gray-600">
+              — BridgeMark Philosophy
+            </p>
+          </div>
+        </section>
 
-            {/* Flex container to center items perfectly */}
-            <div className="flex flex-wrap justify-center gap-8">
-              {team.map((member) => (
-                <div
-                  key={member.name}
-                  className="w-80 max-w-full group relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 dark:from-white/10 light:from-black/10 to-transparent hover:from-primary/50 hover:to-secondary-accent/50 transition-all duration-500"
-                >
-                  <div className="relative flex flex-col h-full rounded-2xl bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl overflow-hidden border border-white/5 dark:border-white/5 light:border-black/5 group-hover:border-transparent transition-all">
-                    
-                    {/* CLICKABLE IMAGE AREA */}
-                    <a 
-                      href={member.twitter} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="aspect-square overflow-hidden block cursor-pointer relative"
+        {/* Team */}
+        <section className="w-full max-w-5xl mb-24">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4">
+            [Team]
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white light:text-gray-900 mb-12 tracking-tight">
+            Meet the Team
+          </h2>
+
+          <div className="flex flex-wrap gap-6">
+            {team.map((member) => (
+              <a
+                key={member.name}
+                href={member.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-72 border border-white/[0.06] light:border-black/[0.08] rounded-2xl overflow-hidden group hover:border-white/[0.12] light:hover:border-black/[0.15] transition-colors duration-500"
+              >
+                <div className="aspect-square overflow-hidden relative">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-8 h-8 fill-white"
                     >
-                      {/* OVERLAY WITH X LOGO */}
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                          {/* The X Logo SVG */}
-                          <svg 
-                            viewBox="0 0 24 24" 
-                            aria-hidden="true" 
-                            className="w-12 h-12 fill-white transform scale-50 group-hover:scale-100 transition-transform duration-300 ease-out"
-                          >
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                          </svg>
-                      </div>
-
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                      />
-                    </a>
-
-                    <div className="p-6">
-                      <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-lg group-hover:text-primary transition-colors">
-                        {member.name}
-                      </h3>
-                      <p className="text-primary/80 text-sm font-medium mb-2">{member.role}</p>
-                      {member.bio && <p className="text-gray-500 text-sm">{member.bio}</p>}
-                    </div>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                   </div>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  />
                 </div>
-              ))}
-            </div>
-          </section>
+                <div className="p-6">
+                  <h3 className="text-white light:text-gray-900 font-bold text-lg group-hover:text-primary transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">{member.role}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
-       {/* CTA Section */}
+        {/* CTA */}
         <section className="w-full max-w-4xl">
-          <div className="glass-card rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary-accent/10 via-transparent to-primary/10" />
+          <div className="border border-white/[0.06] light:border-black/[0.08] rounded-2xl p-12 sm:p-16 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 tracking-tight">
+              Ready to professionalize?
+            </h2>
+            <p className="text-gray-500 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+              Whether you are an agency seeking structure or a brand seeking
+              excellence, BridgeMark is your on-chain home.
+            </p>
 
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-black mb-6">
-                Ready to find your perfect agency?
-              </h2>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg mb-8 max-w-xl mx-auto">
-                Join thousands of businesses who would find their ideal marketing partners through Bridgemark.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/get-matched"
-                  className="group flex items-center justify-center rounded-full h-14 px-8 hover:border-secondary-accent border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 hover:bg-right transition-all duration-500 text-lg font-bold"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/get-matched"
+                className="group flex items-center justify-center rounded-full h-12 sm:h-13 px-8 bg-white text-black text-sm sm:text-base font-semibold hover:scale-[1.03] transition-transform duration-300"
+              >
+                Get Matched Now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="ml-2 group-hover:translate-x-1 transition-transform"
                 >
-                  Get Matched Now
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-2"
-                    fill="currentColor"
-                    viewBox="0 -960 960 960"
-                  >
-                    <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Z" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/"
-                  className="flex items-center justify-center rounded-full h-14 px-8 bg-black/40 dark:bg-black/40 light:bg-white/80 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-gray-900 text-lg font-medium backdrop-blur-md transition-all hover:border-primary/50"
-                >
-                  Back to Home
-                </Link>
-              </div>
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+              <Link
+                href="/"
+                className="flex items-center justify-center rounded-full h-12 sm:h-13 px-8 border border-white/10 light:border-black/15 text-white light:text-gray-900 text-sm sm:text-base font-medium hover:border-white/25 light:hover:border-black/25 transition-colors duration-300"
+              >
+                Back to Home
+              </Link>
             </div>
           </div>
         </section>

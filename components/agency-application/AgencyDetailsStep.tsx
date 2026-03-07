@@ -35,7 +35,7 @@ function FormInput({
 }: FormInputProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -47,10 +47,10 @@ function FormInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         maxLength={maxLength}
-        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
+        className={`w-full bg-white/[0.03] border rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -88,7 +88,7 @@ function FormTextarea({
 }: FormTextareaProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -100,10 +100,10 @@ function FormTextarea({
         placeholder={placeholder}
         maxLength={maxLength}
         rows={rows}
-        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-lg px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
+        className={`w-full bg-white/[0.03] border rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -139,7 +139,7 @@ function FormSelect({
 }: FormSelectProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -148,17 +148,17 @@ function FormSelect({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full appearance-none bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 focus:outline-none focus:ring-1 transition-all cursor-pointer ${
+        className={`w-full appearance-none bg-white/[0.03] border rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all cursor-pointer ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         } ${!value ? "text-gray-500" : ""}`}
       >
-        <option value="" className="bg-black dark:bg-black light:bg-white">
+        <option value="" className="bg-[#0a0a0a]">
           {placeholder}
         </option>
         {options.map((option) => (
-          <option key={option} value={option} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
+          <option key={option} value={option} className="bg-[#0a0a0a] text-white">
             {option}
           </option>
         ))}
@@ -197,7 +197,7 @@ function MultiSelect({
 
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
         <span className="text-gray-500 font-normal ml-2">
@@ -213,10 +213,10 @@ function MultiSelect({
               type="button"
               onClick={() => toggleOption(option)}
               disabled={!isSelected && selected.length >= maxItems}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+              className={`px-3 py-1.5 text-sm rounded-md font-medium transition-all ${
                 isSelected
                   ? "bg-primary text-black"
-                  : "bg-white/5 dark:bg-white/5 light:bg-black/5 text-gray-300 dark:text-gray-300 light:text-gray-600 border border-white/10 dark:border-white/10 light:border-black/10 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  : "bg-white/[0.03] text-gray-400 border border-white/[0.06] hover:bg-white/[0.06] hover:border-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
               }`}
             >
               {option}
@@ -239,20 +239,20 @@ interface ImageUploadProps {
 function ImageUpload({ label, endpoint, value, onChange }: ImageUploadProps) {
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">{label}</label>
+      <label className="block text-sm font-semibold text-white">{label}</label>
       {value ? (
         <div className="relative group">
           <img
             src={value}
             alt={label}
-            className={`rounded-xl object-cover border border-white/10 ${
+            className={` object-cover border border-white/[0.06] ${
               endpoint === "agencyLogo" ? "w-24 h-24" : "w-full h-40"
             }`}
           />
           <button
             type="button"
             onClick={() => onChange("")}
-            className="absolute top-2 right-2 p-1.5 rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute top-2 right-2 p-1.5  bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -279,7 +279,7 @@ function ImageUpload({ label, endpoint, value, onChange }: ImageUploadProps) {
           onUploadError={(error: Error) => {
             console.error("Upload error:", error);
           }}
-          className="ut-button:bg-primary ut-button:text-black ut-button:hover:bg-primary/90 ut-label:text-gray-400 ut-allowed-content:text-gray-500 border-white/10 bg-white/5"
+          className="ut-button:bg-primary ut-button:text-black ut-button:hover:bg-primary/90 ut-label:text-gray-400 ut-allowed-content:text-gray-500 border-white/[0.06] bg-white/5"
         />
       )}
     </div>
@@ -318,7 +318,7 @@ export function AgencyDetailsStep() {
   };
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-10">
+    <div className="border border-white/[0.06] p-8 md:p-10">
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-2">Agency Details</h2>
         <p className="text-gray-400">Tell us about your agency and what makes you unique.</p>
@@ -467,11 +467,11 @@ export function AgencyDetailsStep() {
         />
 
         {/* Navigation */}
-        <div className="flex justify-end pt-6 border-t border-white/10">
+        <div className="flex justify-end pt-6 border-t border-white/[0.06]">
           <button
             type="button"
             onClick={handleNext}
-            className="flex items-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="flex items-center gap-2 rounded-full px-8 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition-all"
           >
             Continue to Portfolio
             <svg
@@ -492,3 +492,5 @@ export function AgencyDetailsStep() {
     </div>
   );
 }
+
+

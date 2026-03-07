@@ -49,14 +49,9 @@ export function SuccessStep({ slug }: SuccessStepProps) {
   }, []);
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-12 text-center max-w-2xl mx-auto relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute -right-20 -top-20 w-60 h-60 bg-secondary-accent/30 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-primary/30 rounded-full blur-[80px] pointer-events-none" />
-
-      {/* Success Icon */}
+    <div className="border border-white/[0.06] p-8 md:p-12 text-center max-w-2xl mx-auto relative overflow-hidden">
       <div className="relative z-10">
-        <div className="w-24 h-24 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-secondary-accent flex items-center justify-center shadow-[0_0_40px_rgba(0,240,255,0.4)]">
+        <div className="w-20 h-20 mx-auto mb-8 border border-white/[0.1] flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -71,50 +66,50 @@ export function SuccessStep({ slug }: SuccessStepProps) {
           </svg>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-black mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Application{" "}
-          <span className="bg-gradient-to-r from-primary to-secondary-accent bg-clip-text text-transparent">
+          <span className="text-gradient">
             Submitted!
           </span>
         </h2>
 
-        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg mb-8 max-w-md mx-auto">
+        <p className="text-gray-500 text-lg mb-8 max-w-md mx-auto">
           Thank you for applying to join our curated network. Your listing is now under review.
         </p>
 
         {/* What's Next */}
-        <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 rounded-2xl p-6 mb-8 text-left">
+        <div className="border border-white/[0.06] p-6 mb-8 text-left">
           <h3 className="text-lg font-semibold mb-4 text-center">What happens next?</h3>
           <div className="space-y-4">
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-primary font-bold text-sm">1</span>
+              <div className="w-8 h-8 border border-white/[0.1] flex items-center justify-center flex-shrink-0">
+                <span className="text-gray-400 font-semibold text-xs">01</span>
               </div>
               <div>
-                <p className="text-white dark:text-white light:text-gray-900 font-medium">Review Process</p>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
+                <p className="text-white font-medium">Review Process</p>
+                <p className="text-gray-500 text-sm">
                   Our team will review your application within 2-3 business days.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-primary font-bold text-sm">2</span>
+              <div className="w-8 h-8 border border-white/[0.1] flex items-center justify-center flex-shrink-0">
+                <span className="text-gray-400 font-semibold text-xs">02</span>
               </div>
               <div>
-                <p className="text-white dark:text-white light:text-gray-900 font-medium">Email Confirmation</p>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
+                <p className="text-white font-medium">Email Confirmation</p>
+                <p className="text-gray-500 text-sm">
                   You&apos;ll receive an email once your listing is approved and live.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-primary font-bold text-sm">3</span>
+              <div className="w-8 h-8 border border-white/[0.1] flex items-center justify-center flex-shrink-0">
+                <span className="text-gray-400 font-semibold text-xs">03</span>
               </div>
               <div>
-                <p className="text-white dark:text-white light:text-gray-900 font-medium">Start Receiving Leads</p>
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
+                <p className="text-white font-medium">Start Receiving Leads</p>
+                <p className="text-gray-500 text-sm">
                   Once approved, your profile will be visible to businesses looking for agencies.
                 </p>
               </div>
@@ -125,7 +120,7 @@ export function SuccessStep({ slug }: SuccessStepProps) {
         {/* Profile Preview Link */}
         <div className="space-y-4">
           <p className="text-gray-500 text-sm">Your profile will be available at:</p>
-          <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-4 py-3 inline-block">
+          <div className="bg-white/[0.03] border border-white/[0.06] px-4 py-3 inline-block">
             <code className="text-primary text-sm">
               bridgemark.tech/agencies/{slug}
             </code>
@@ -136,13 +131,13 @@ export function SuccessStep({ slug }: SuccessStepProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <Link
             href="/"
-            className="px-6 py-3 bg-white/5 dark:bg-white/5 light:bg-black/5 text-white dark:text-white light:text-gray-900 font-semibold rounded-xl hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 transition-all border border-white/10 dark:border-white/10 light:border-black/10"
+            className="px-6 py-2.5 text-white text-sm font-medium border border-white/[0.06] hover:border-white/[0.15] transition-colors"
           >
             Back to Home
           </Link>
           <Link
             href="/agencies"
-            className="px-6 py-3 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="rounded-full px-6 py-3 bg-white text-black font-semibold hover:bg-gray-200 transition-all "
           >
             Browse Agencies
           </Link>
@@ -219,3 +214,7 @@ export function SuccessStep({ slug }: SuccessStepProps) {
     </div>
   );
 }
+
+
+
+

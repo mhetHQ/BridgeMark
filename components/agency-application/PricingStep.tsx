@@ -32,7 +32,7 @@ function FormSelect({
 
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
       </label>
@@ -41,23 +41,23 @@ function FormSelect({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full appearance-none bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 focus:outline-none focus:ring-1 transition-all cursor-pointer ${
+        className={`w-full appearance-none bg-white/[0.03] border  px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all cursor-pointer ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         } ${!value ? "text-gray-500" : ""}`}
       >
-        <option value="" className="bg-black dark:bg-black light:bg-white">
+        <option value="" className="bg-[#0a0a0a]">
           {placeholder}
         </option>
         {isObjectOptions
           ? (options as { value: string; label: string }[]).map((option) => (
-              <option key={option.value} value={option.value} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
+              <option key={option.value} value={option.value} className="bg-[#0a0a0a] text-white">
                 {option.label}
               </option>
             ))
           : (options as string[]).map((option) => (
-              <option key={option} value={option} className="bg-black dark:bg-black light:bg-white text-white dark:text-white light:text-gray-900">
+              <option key={option} value={option} className="bg-[#0a0a0a] text-white">
                 {option}
               </option>
             ))}
@@ -90,7 +90,7 @@ function FormTextarea({
 }: FormTextareaProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
       </label>
       <textarea
@@ -101,10 +101,10 @@ function FormTextarea({
         placeholder={placeholder}
         maxLength={maxLength}
         rows={rows}
-        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
+        className={`w-full bg-white/[0.03] border  px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all resize-none ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {maxLength && (
@@ -136,7 +136,7 @@ function FormInput({
 }: FormInputProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label htmlFor={name} className="block text-sm font-semibold text-white">
         {label}
       </label>
       <input
@@ -146,10 +146,10 @@ function FormInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={`w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl px-4 py-3 text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
+        className={`w-full bg-white/[0.03] border  px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 transition-all ${
           error
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus:border-primary/50 focus:ring-primary/50"
+            : "border-white/[0.06] focus:border-primary/50 focus:ring-primary/50"
         }`}
       />
       {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -218,7 +218,7 @@ export function PricingStep() {
   const selectedModelInfo = data.pricingModel ? pricingModelInfo[data.pricingModel] : null;
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-10">
+    <div className="border border-white/[0.06] p-8 md:p-10">
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-2">Pricing</h2>
         <p className="text-gray-400">Set your pricing structure and budget expectations.</p>
@@ -226,7 +226,7 @@ export function PricingStep() {
 
       <div className="space-y-8">
         {/* Budget Range */}
-        <div className="p-6 bg-gradient-to-br from-primary/5 to-secondary-accent/5 rounded-2xl border border-white/10">
+        <div className="p-6 bg-white/[0.02]  border border-white/[0.06]">
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +282,7 @@ export function PricingStep() {
           />
 
           {selectedModelInfo && (
-            <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+            <div className="p-4 bg-white/[0.03]  border border-white/[0.06]">
               <p className="text-gray-400 text-sm mb-4">{selectedModelInfo.description}</p>
 
               {selectedModelInfo.fields.includes("hourlyRate") && (
@@ -347,7 +347,7 @@ export function PricingStep() {
 
         {/* Pricing Summary */}
         {data.minBudget && data.pricingModel && (
-          <div className="p-6 bg-gradient-to-br from-secondary-accent/10 to-primary/10 rounded-2xl border border-secondary-accent/20">
+          <div className="p-6 bg-white/[0.02]  border border-white/[0.06]">
             <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
               Pricing Summary
             </h4>
@@ -373,11 +373,11 @@ export function PricingStep() {
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between pt-6 border-t border-white/10">
+        <div className="flex justify-between pt-6 border-t border-white/[0.06]">
           <button
             type="button"
             onClick={handleBack}
-            className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10"
+            className="flex items-center gap-2 rounded-full px-6 py-3 bg-white/[0.03] text-white font-semibold  hover:bg-white/[0.06] transition-all border border-white/[0.06]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -396,7 +396,7 @@ export function PricingStep() {
           <button
             type="button"
             onClick={handleNext}
-            className="flex items-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="flex items-center gap-2 rounded-full px-8 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition-all"
           >
             Continue to Payment
             <svg
@@ -417,3 +417,7 @@ export function PricingStep() {
     </div>
   );
 }
+
+
+
+

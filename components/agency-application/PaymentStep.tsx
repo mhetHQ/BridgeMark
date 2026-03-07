@@ -281,9 +281,9 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
   // Show loading state if processing payment return
   if (isCreatingAgency) {
     return (
-      <div className="glass-card rounded-3xl p-8 md:p-10">
+      <div className="border border-white/[0.06] p-8 md:p-10">
         <div className="flex flex-col items-center justify-center py-16 space-y-6">
-          <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-green-500/20  flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -301,7 +301,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
             <p className="text-xl font-semibold text-white mb-2">Payment Successful!</p>
             <p className="text-gray-400">Creating your agency listing...</p>
           </div>
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary  animate-spin" />
         </div>
       </div>
     );
@@ -310,9 +310,9 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
   // Show polling state when waiting for payment
   if (isWaitingForPayment && paymentId) {
     return (
-      <div className="glass-card rounded-3xl p-8 md:p-10">
+      <div className="border border-white/[0.06] p-8 md:p-10">
         <div className="flex flex-col items-center justify-center py-16 space-y-6">
-          <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-primary/20  flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-primary">
               <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clipRule="evenodd" />
             </svg>
@@ -326,14 +326,14 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
             </p>
             <p className="text-sm text-gray-500">Payment ID: {paymentId}</p>
           </div>
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary  animate-spin" />
 
           <div className="flex flex-col gap-3 items-center mt-4">
             {/* Verify Payment Button - Fallback when webhook doesn't work */}
             <button
               onClick={verifyPayment}
               disabled={isVerifying}
-              className="px-6 py-2 bg-primary hover:bg-primary/80 disabled:bg-primary/50 text-white font-semibold rounded-lg transition-colors"
+              className="rounded-full px-6 py-2 bg-primary hover:bg-primary/80 disabled:bg-primary/50 text-white font-semibold transition-colors"
             >
               {isVerifying ? "Verifying..." : "I've Completed Payment - Verify Now"}
             </button>
@@ -358,7 +358,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
   }
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-10">
+    <div className="border border-white/[0.06] p-8 md:p-10">
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-2">Payment</h2>
         <p className="text-gray-400">
@@ -368,7 +368,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
 
       <div className="space-y-8">
         {/* Application Summary */}
-        <div className="p-6 bg-white/5 rounded-2xl border border-white/10">
+        <div className="p-6 bg-white/[0.03]  border border-white/[0.06]">
           <h3 className="text-lg font-semibold mb-4">Application Summary</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
@@ -399,7 +399,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
         </div>
 
         {/* Listing Fee */}
-        <div className="p-6 bg-gradient-to-br from-secondary-accent/10 to-primary/10 rounded-2xl border border-secondary-accent/20">
+        <div className="p-6 bg-white/[0.02]  border border-white/[0.06]">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold">Annual Listing Fee</h3>
@@ -413,7 +413,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
             </div>
           </div>
 
-          <div className="space-y-2 pt-4 border-t border-white/10">
+          <div className="space-y-2 pt-4 border-t border-white/[0.06]">
             <div className="flex items-center gap-2 text-sm text-gray-300">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-primary">
                 <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clipRule="evenodd" />
@@ -451,7 +451,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
                 setAgreedToTerms(e.target.checked);
                 if (error && e.target.checked) setError(null);
               }}
-              className="mt-1 w-5 h-5 rounded border-white/20 bg-white/5 text-primary focus:ring-primary/50 cursor-pointer"
+              className="mt-1 w-5 h-5 rounded border-white/20 bg-white/[0.03] text-primary focus:ring-primary/50 cursor-pointer"
             />
             <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
               I agree to the{" "}
@@ -469,7 +469,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
         </div>
 
         {/* Payment Info */}
-        <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+        <div className="p-4 bg-white/[0.03]  border border-white/[0.06]">
           <div className="flex items-start gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-primary shrink-0 mt-0.5">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
@@ -484,18 +484,18 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
 
         {/* Error Message */}
         {error && (
-          <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+          <div className="p-4 bg-red-500/10 border border-red-500/30 ">
             <p className="text-red-400 text-sm">{error}</p>
           </div>
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between pt-6 border-t border-white/10">
+        <div className="flex justify-between pt-6 border-t border-white/[0.06]">
           <button
             type="button"
             onClick={handleBack}
             disabled={isProcessing}
-            className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10 disabled:opacity-50"
+            className="flex items-center gap-2 rounded-full px-6 py-3 bg-white/[0.03] text-white font-semibold  hover:bg-white/[0.06] transition-all border border-white/[0.06] disabled:opacity-50"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
               <path fillRule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clipRule="evenodd" />
@@ -507,7 +507,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
             type="button"
             onClick={initiatePayment}
             disabled={isProcessing || !agreedToTerms}
-            className="flex items-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-xl hover:opacity-90 transition-all shadow-[0_0_30px_rgba(189,0,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 rounded-full px-8 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition-all  disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isProcessing ? (
               <>
@@ -531,3 +531,7 @@ export function PaymentStep({ onSuccess }: PaymentStepProps) {
     </div>
   );
 }
+
+
+
+

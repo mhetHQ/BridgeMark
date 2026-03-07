@@ -42,7 +42,7 @@ function TagInput({
 
   return (
     <div className="space-y-3">
-      <label className="block text-sm font-semibold text-white dark:text-white light:text-gray-900">
+      <label className="block text-sm font-semibold text-white">
         {label}
         {required && <span className="text-secondary-accent ml-1">*</span>}
         <span className="text-gray-500 font-normal ml-2">
@@ -50,23 +50,23 @@ function TagInput({
         </span>
       </label>
       <div
-        className={`bg-white/5 dark:bg-white/5 light:bg-black/5 border rounded-xl p-3 focus-within:ring-1 transition-all ${
+        className={`bg-white/[0.03] border  p-3 focus-within:ring-1 transition-all ${
           error
             ? "border-red-500 focus-within:ring-red-500/50"
-            : "border-white/10 dark:border-white/10 light:border-black/10 focus-within:border-primary/50 focus-within:ring-primary/50"
+            : "border-white/[0.06] focus-within:border-primary/50 focus-within:ring-primary/50"
         }`}
       >
         <div className="flex flex-wrap gap-2 mb-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/20 text-primary rounded-full text-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/20 text-primary  text-sm"
             >
               {tag}
               <button
                 type="button"
                 onClick={() => removeTag(tag)}
-                className="hover:text-white dark:hover:text-white light:hover:text-gray-900 transition-colors"
+                className="hover:text-white  transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ function TagInput({
           onKeyDown={handleKeyDown}
           placeholder={tags.length >= maxTags ? `Maximum ${maxTags} items` : placeholder}
           disabled={tags.length >= maxTags}
-          className="w-full bg-transparent text-white dark:text-white light:text-gray-900 placeholder:text-gray-500 focus:outline-none disabled:opacity-50"
+          className="w-full bg-transparent text-white placeholder:text-gray-500 focus:outline-none disabled:opacity-50"
         />
       </div>
       {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -116,11 +116,11 @@ interface CaseStudyCardProps {
 
 function CaseStudyCard({ caseStudy, index, onUpdate, onRemove }: CaseStudyCardProps) {
   return (
-    <div className="glass-card rounded-xl p-5 space-y-4 relative group">
+    <div className="border border-white/[0.06] p-5 space-y-4 relative group">
       <button
         type="button"
         onClick={() => onRemove(index)}
-        className="absolute top-3 right-3 p-1.5 rounded-full bg-red-500/20 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500/30"
+        className="absolute top-3 right-3 p-1.5  bg-red-500/20 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500/30"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ function CaseStudyCard({ caseStudy, index, onUpdate, onRemove }: CaseStudyCardPr
         onChange={(e) => onUpdate(index, { description: e.target.value })}
         placeholder="Brief project description..."
         rows={2}
-        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 resize-none text-sm"
+        className="w-full bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 resize-none text-sm"
       />
 
       <input
@@ -159,7 +159,7 @@ function CaseStudyCard({ caseStudy, index, onUpdate, onRemove }: CaseStudyCardPr
         value={caseStudy.result}
         onChange={(e) => onUpdate(index, { result: e.target.value })}
         placeholder="Key result (e.g., 300% increase in conversions)"
-        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-primary font-semibold placeholder:text-gray-500 focus:outline-none focus:border-primary/50 text-sm"
+        className="w-full bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-primary font-semibold placeholder:text-gray-500 focus:outline-none focus:border-primary/50 text-sm"
       />
 
       <div className="flex gap-3">
@@ -168,7 +168,7 @@ function CaseStudyCard({ caseStudy, index, onUpdate, onRemove }: CaseStudyCardPr
           value={caseStudy.link || ""}
           onChange={(e) => onUpdate(index, { link: e.target.value })}
           placeholder="Project URL (optional)"
-          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 text-sm"
+          className="flex-1 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 text-sm"
         />
         {caseStudy.image ? (
           <div className="relative w-16 h-10 rounded-lg overflow-hidden">
@@ -197,7 +197,7 @@ function CaseStudyCard({ caseStudy, index, onUpdate, onRemove }: CaseStudyCardPr
             </button>
           </div>
         ) : (
-          <label className="flex items-center justify-center w-16 h-10 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+          <label className="flex items-center justify-center w-16 h-10 bg-white/[0.03] border border-white/[0.06] rounded-lg cursor-pointer hover:bg-white/[0.06] transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -233,11 +233,11 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial, index, onUpdate, onRemove }: TestimonialCardProps) {
   return (
-    <div className="glass-card rounded-xl p-5 space-y-4 relative group">
+    <div className="border border-white/[0.06] p-5 space-y-4 relative group">
       <button
         type="button"
         onClick={() => onRemove(index)}
-        className="absolute top-3 right-3 p-1.5 rounded-full bg-red-500/20 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500/30"
+        className="absolute top-3 right-3 p-1.5  bg-red-500/20 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500/30"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +258,7 @@ function TestimonialCard({ testimonial, index, onUpdate, onRemove }: Testimonial
         onChange={(e) => onUpdate(index, { quote: e.target.value })}
         placeholder="Client testimonial..."
         rows={3}
-        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 resize-none"
+        className="w-full bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 resize-none"
       />
 
       <div className="flex gap-3">
@@ -267,14 +267,14 @@ function TestimonialCard({ testimonial, index, onUpdate, onRemove }: Testimonial
           value={testimonial.author}
           onChange={(e) => onUpdate(index, { author: e.target.value })}
           placeholder="Author name"
-          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 text-sm"
+          className="flex-1 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 text-sm"
         />
         <input
           type="text"
           value={testimonial.company}
           onChange={(e) => onUpdate(index, { company: e.target.value })}
           placeholder="Company"
-          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 text-sm"
+          className="flex-1 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-secondary-accent/50 text-sm"
         />
       </div>
     </div>
@@ -361,7 +361,7 @@ export function PortfolioStep() {
   };
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-10">
+    <div className="border border-white/[0.06] p-8 md:p-10">
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-2">Portfolio & Services</h2>
         <p className="text-gray-400">Showcase your expertise and past work to attract the right clients.</p>
@@ -408,7 +408,7 @@ export function PortfolioStep() {
               type="button"
               onClick={addCaseStudy}
               disabled={data.caseStudies.length >= 6}
-              className="flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary rounded-lg hover:bg-primary/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold"
+              className="flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary rounded-full hover:bg-primary/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -439,7 +439,7 @@ export function PortfolioStep() {
               ))}
             </div>
           ) : (
-            <div className="border border-dashed border-white/20 rounded-xl p-8 text-center">
+            <div className="border border-dashed border-white/20  p-8 text-center">
               <p className="text-gray-500 text-sm">
                 No case studies yet. Add your best work to showcase your expertise.
               </p>
@@ -467,7 +467,7 @@ export function PortfolioStep() {
             onUploadError={(error: Error) => {
               console.error("Upload error:", error);
             }}
-            className="ut-button:bg-secondary-accent ut-button:text-white ut-button:hover:bg-secondary-accent/90 ut-label:text-gray-400 ut-allowed-content:text-gray-500 border-white/10 bg-white/5"
+            className="ut-button:bg-secondary-accent ut-button:text-white ut-button:hover:bg-secondary-accent/90 ut-label:text-gray-400 ut-allowed-content:text-gray-500 border-white/[0.06] bg-white/5"
           />
           {data.portfolioImages && data.portfolioImages.length > 0 && (
             <div className="flex flex-wrap gap-3">
@@ -525,7 +525,7 @@ export function PortfolioStep() {
               type="button"
               onClick={addTestimonial}
               disabled={(data.testimonials?.length ?? 0) >= 3}
-              className="flex items-center gap-2 px-4 py-2 bg-secondary-accent/20 text-secondary-accent rounded-lg hover:bg-secondary-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold"
+              className="flex items-center gap-2 px-4 py-2 bg-secondary-accent/20 text-secondary-accent rounded-full hover:bg-secondary-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -556,7 +556,7 @@ export function PortfolioStep() {
               ))}
             </div>
           ) : (
-            <div className="border border-dashed border-white/20 rounded-xl p-8 text-center">
+            <div className="border border-dashed border-white/20  p-8 text-center">
               <p className="text-gray-500 text-sm">
                 No testimonials yet. Add client feedback to build trust.
               </p>
@@ -565,11 +565,11 @@ export function PortfolioStep() {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between pt-6 border-t border-white/10">
+        <div className="flex justify-between pt-6 border-t border-white/[0.06]">
           <button
             type="button"
             onClick={handleBack}
-            className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10"
+            className="flex items-center gap-2 rounded-full px-6 py-3 bg-white/[0.03] text-white font-semibold  hover:bg-white/[0.06] transition-all border border-white/[0.06]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -588,7 +588,7 @@ export function PortfolioStep() {
           <button
             type="button"
             onClick={handleNext}
-            className="flex items-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="flex items-center gap-2 rounded-full px-8 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition-all"
           >
             Continue to Pricing
             <svg
@@ -609,3 +609,7 @@ export function PortfolioStep() {
     </div>
   );
 }
+
+
+
+
