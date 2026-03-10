@@ -87,7 +87,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed">
             Replacing vibe-based agreements with professional structure and
-            reliable delivery for the next generation of the internet.
+            reliable delivery for the next generation of the internet
           </p>
         </section>
 
